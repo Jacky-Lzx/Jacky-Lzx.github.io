@@ -18,16 +18,16 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-property-decorator';
+    import {Component, Vue} from 'vue-facing-decorator';
     import ModuleHeader from '@/components/module/ModuleHeader.vue';
     import {Module} from '@/api/user_interface';
     // tslint:disable-next-line:no-var-requires
-    import VueMarkdown from 'vue-markdown';
+    // import VueMarkdown from 'vue-markdown';
 
     @Component({
         components: {
             ModuleHeader,
-            VueMarkdown,
+            // VueMarkdown,
         },
         computed: {
             experience(): Module {

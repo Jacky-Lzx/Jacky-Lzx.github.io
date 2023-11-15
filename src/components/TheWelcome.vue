@@ -1,9 +1,10 @@
 <!-- 整体的框架 -->
 
 <template>
+  <h2>test_theWelcome</h2>
   <a-layout>
       <!-- 首屏 -->
-      <!-- <a-layout-header class="layout-header"><Banner/></a-layout-header> -->
+      <a-layout-header class="layout-header"><Banner/></a-layout-header>
       <!-- 内容 -->
       <!-- <a-layout> -->
           <!-- 菜单 -->
@@ -36,37 +37,34 @@
 </template>
 
 <script lang="ts">
-  // import {Component, Vue} from 'vue-property-decorator';
+  import {Component, Vue} from 'vue-facing-decorator';
   // import {mapGetters} from 'vuex';
 
-  import Banner from '@/components/icons/Banner.vue';
-  import Menu from '@/components/icons/Menu.vue';
-  import About from '@/components/icons/About.vue';
-  import Experience from '@/components/icons/Experience.vue';
-  import Blog from '@/components/icons/Blog.vue';
-  import Footer from '@/components/icons/Footer.vue';
+  import Banner from '@/components/Banner.vue';
+  // import Menu from '@/components/Menu.vue';
+  // import About from '@/components/About.vue';
+  // import Experience from '@/components/Experience.vue';
+  // import Blog from '@/components/Blog.vue';
+  // import Footer from '@/components/Footer.vue';
 
-  // @Component({
-      // components: {
-          // Banner,
+  @Component({
+      components: {
+          Banner,
           // Menu,
           // About,
           // Experience,
           // Blog,
           // Footer,
-      // },
+      },
       // computed: {
           // ...mapGetters(['moduleIds']),
       // },
-  // })
-  // export default class Home extends Vue {
-  export default class Home {
+  })
+  export default class Home extends Vue {
       private menuDrawerVisible = false;
-
       private toggleMenuDrawer() {
           this.menuDrawerVisible = !this.menuDrawerVisible;
       }
-
       private onMenuDrawerClose() {
           this.menuDrawerVisible = false;
       }

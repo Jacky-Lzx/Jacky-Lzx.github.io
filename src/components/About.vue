@@ -16,7 +16,7 @@
                 <!-- 简介 -->
                 <span data-aos="fade-in" class="brief typer black">
                     {{about.content.name}}，
-                    <vue-typer :text="about.content.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue-typer>
+                    <vue3-typer :text="about.content.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer>
                 </span>
                 <!-- 正文 -->
                 <vue-markdown data-aos="fade-in">{{about.content.md}}</vue-markdown>
@@ -35,21 +35,21 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-property-decorator';
+    import {Component, Vue} from 'vue-facing-decorator';
     import ModuleHeader from '@/components/module/ModuleHeader.vue';
     import ModuleSkeleton from '@/components/module/ModuleSkeleton.vue';
     import {Module} from '@/api/user_interface';
     // tslint:disable-next-line:no-var-requires
-    import {VueTyper} from 'vue-typer';
+    import {VueTyper} from 'vue3-typer';
     // tslint:disable-next-line:no-var-requires
-    import VueMarkdown from 'vue-markdown';
+    // import VueMarkdown from 'vue-markdown';
 
     @Component({
         components: {
             ModuleHeader,
             ModuleSkeleton,
             VueTyper,
-            VueMarkdown,
+            // VueMarkdown,
         },
         computed: {
             about(): Module {

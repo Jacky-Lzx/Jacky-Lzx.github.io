@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue, Prop} from 'vue-property-decorator';
+    import {Component, Vue, Prop} from 'vue-facing-decorator';
     import _ from 'lodash';
 
     @Component({

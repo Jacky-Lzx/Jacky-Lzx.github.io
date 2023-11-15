@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-property-decorator';
-    import {mapGetters} from 'vuex';
+    import {Component, Vue} from 'vue-facing-decorator';
+    // import {mapGetters} from 'vuex';
 
     @Component({
         components: {
@@ -27,9 +27,9 @@
             color: String,
             size: Number,
         },
-        computed: {
-            ...mapGetters(['social']),
-        },
+        // computed: {
+            // ...mapGetters(['social']),
+        // },
     })
     export default class Social extends Vue {
     }

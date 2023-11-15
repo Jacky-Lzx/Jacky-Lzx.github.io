@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-property-decorator';
+    import {Component, Vue} from 'vue-facing-decorator';
     import ModuleHeader from '@/components/module/ModuleHeader.vue';
     import ModuleSkeleton from '@/components/module/ModuleSkeleton.vue';
 

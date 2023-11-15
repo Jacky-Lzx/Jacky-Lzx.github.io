@@ -21,7 +21,7 @@
                 <h1>{{banner.title || '林中小舍'}}</h1>
                 <h3 class="typer white">
                     鄙人，
-                    <vue-typer :text="banner.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue-typer>
+                    <vue3-typer :text="banner.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer>
                 </h3>
             </div>
         </div>
@@ -32,21 +32,21 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-property-decorator';
-    import {mapGetters} from 'vuex';
+    import {Component, Vue} from 'vue-facing-decorator';
+    // import {mapGetters} from 'vuex';
 
     // tslint:disable-next-line:no-var-requires
-    import {VueTyper} from 'vue-typer';
+    // import {VueTyper} from 'vue3-typer';
 
-    @Component({
-        components: {
-            VueTyper,
-            Badge: () => import('@/components/footer/Badge.vue'),
-        },
-        computed: {
-            ...mapGetters(['banner']),
-        },
-    })
+    // @Component({
+    //     components: {
+    //         // VueTyper,
+    //         // Badge: () => import('@/components/footer/Badge.vue'),
+    //     },
+    //     // computed: {
+    //         // ...mapGetters(['banner']),
+    //     // },
+    // })
     export default class Banner extends Vue {
     }
 </script>
@@ -116,7 +116,7 @@
             h3 {
                 font-size: 1.5em;
 
-                .vue-typer {
+                .vue3-typer {
                     display: inline-block;
                 }
             }
