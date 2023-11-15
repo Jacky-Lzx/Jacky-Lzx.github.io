@@ -28,7 +28,7 @@
 <script lang="ts">
     import {Component, Vue} from 'vue-facing-decorator';
 
-    @Component({})
+    @Component
     export default class Badge extends Vue {
     }
 </script>

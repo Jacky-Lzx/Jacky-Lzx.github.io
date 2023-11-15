@@ -2,27 +2,29 @@
 
 <template>
     <div class="banner" id="banner">
-        <!-- 加载层 -->
         <div class="bg back"><h1>林小二奋笔疾书...</h1></div>
-        <!-- 脚贴 -->
         <div class="fork-me">
             <a class="fork-me-link" href="https://github.com/manerfan/vuesume/wiki" target="_blank">
                 <span class="fork-me-text">Docs On GitHub</span>
             </a>
         </div>
-        <!-- 背景层 -->
         <div data-aos="fade-in" class="bg"></div>
-        <!-- 内容层 -->
         <div data-aos="fade-in" class="desc">
-            <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image">
-                <img draggable="false" src="../assets/avatar.jpg">
-            </span>
+            <!-- <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image"> -->
+            <!--     <img draggable="false" src="../assets/avatar.jpg"> -->
+            <!-- </span> -->
+            <a-avatar :size="160">
+                <template #icon>
+                    <img src="../assets/avatar.jpg">
+                </template>
+            </a-avatar>
             <div>
-                <h1>{{banner.title || '林中小舍'}}</h1>
-                <h3 class="typer white">
+                <h1>{{'林中小舍'}}</h1>
+                <!-- <h1>{{banner.title || '林中小舍'}}</h1> -->
+                <!-- <h3 class="typer white">
                     鄙人，
                     <vue3-typer :text="banner.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer>
-                </h3>
+                </h3> -->
             </div>
         </div>
         <a data-aos="fade-in" class="scroll-next animated infinite bounce" href="#anchor-next" v-smooth-scroll>
@@ -38,15 +40,15 @@
     // tslint:disable-next-line:no-var-requires
     // import {VueTyper} from 'vue3-typer';
 
-    // @Component({
-    //     components: {
-    //         // VueTyper,
-    //         // Badge: () => import('@/components/footer/Badge.vue'),
-    //     },
-    //     // computed: {
-    //         // ...mapGetters(['banner']),
-    //     // },
-    // })
+    @Component({
+        components: {
+            // VueTyper,
+            Badge: () => import('@/components/footer/Badge.vue'),
+        },
+        // computed: {
+            // ...mapGetters(['banner']),
+        // },
+    })
     export default class Banner extends Vue {
     }
 </script>
