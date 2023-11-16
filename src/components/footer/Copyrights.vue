@@ -32,11 +32,13 @@ SOFTWARE.
     import {Component, Vue} from 'vue-facing-decorator';
 
     @Component({
-        props: {
-            color: String,
-            size: Number,
-        },
+        // props: {
+        //     color: String,
+        //     size: Number,
+        // },
     })
     export default class Copyrights extends Vue {
+        color = 'white';
+        size = 1;
     }
 </script>

@@ -13,7 +13,7 @@
             <!-- <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image"> -->
             <!--     <img draggable="false" src="../assets/avatar.jpg"> -->
             <!-- </span> -->
-            <a-avatar :size="160">
+            <a-avatar :size="160" class="avatar">
                 <template #icon>
                     <img src="../assets/avatar.jpg">
                 </template>

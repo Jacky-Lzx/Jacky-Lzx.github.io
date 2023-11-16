@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
     "ant-design-vue": "^4.0.7",
     "vue": "^3.3.4",
     "vue-facing-decorator": "^3.0.4",

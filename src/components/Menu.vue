@@ -7,16 +7,16 @@
             <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image">
                 <img draggable="false" src="../assets/avatar.jpg">
             </span>
-            <span>{{banner.name|| '林中小舍'}}</span>
+            <!-- <span>{{banner.name|| '林中小舍'}}</span> -->
         </div>
         <!-- 菜单 -->
         <a-layout-content class="menu">
             <a-menu>
                 <!-- 根据配置动态模块的内容和顺序 -->
-                <a-menu-item v-for="m in menus" v-bind:key="m.id">
+                <!-- <a-menu-item v-for="m in menus" v-bind:key="m.id">
                     <a-icon :type="m.icon" />
                     <a v-smooth-scroll :href="'#' + m.id" @click="closeMenuDrawer">{{m.name}}</a>
-                </a-menu-item>
+                </a-menu-item> -->
             </a-menu>
         </a-layout-content>
         <!-- 菜单页脚 -->
@@ -44,9 +44,9 @@
             Copyrights,
             Social,
         },
-        computed: {
-            ...mapGetters(['banner', 'menus']),
-        },
+        // computed: {
+        //     ...mapGetters(['banner', 'menus']),
+        // },
     })
     export default class Menu extends Vue {
         private closeMenuDrawer() {

@@ -1,6 +1,7 @@
 <!-- 页脚 -->
 
 <template>
+    <h1>test_footer</h1>
     <a-row class="footer" type="flex" justify="center" align="middle" :gutter="2">
         <!-- 版权 -->
         <a-col :xs="24" :sm="8" :md="6" :lg="6" :xl="6"><Copyrights color="ghostwhite" :size="1"/></a-col>
@@ -8,9 +9,11 @@
         <a-col :xs="24" :sm="6" :md="4" :lg="4" :xl="4">
             <a-popover arrowPointAtCenter>
                 <template slot="content"><Badge/></template>
-                <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image">
-                    <img alt="林舍|Maner·Fan" draggable="false" src="../assets/avatar.jpg"/>
-                </span>
+                <a-avatar :size="64" class="avatar">
+                    <template #icon>
+                        <img src="../assets/avatar.jpg">
+                    </template>
+                </a-avatar>
             </a-popover>
         </a-col>
         <!-- 社交 -->
@@ -30,7 +33,7 @@
         components: {
             Copyrights,
             Social,
-            Badge: () => import('@/components/footer/Badge.vue'),
+            // Badge: () => import('@/components/footer/Badge.vue'),
         },
     })
     export default class Footer extends Vue {

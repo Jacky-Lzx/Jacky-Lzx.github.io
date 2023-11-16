@@ -2,7 +2,7 @@
 
 <template>
     <div class="content about" id="about">
-        <ModuleHeader :title="about.header.title" :sub-title="about.header.subtitle"/>
+        <!-- <ModuleHeader :title="about.header.title" :sub-title="about.header.subtitle"/> -->
         <!-- <ModuleSkeleton :display="true" :number="2" /> -->
         <a-row type="flex" justify="center" align="top">
             <!-- 头像 -->
@@ -12,22 +12,22 @@
             <!-- 内容 -->
             <a-col class="color-content col" :xs="24" :sm="24" :md="24" :lg="14" :xl="16">
                 <!-- title -->
-                <span data-aos="fade-in" class="title color-title">{{about.header.subtitle}}</span>
+                <!-- <span data-aos="fade-in" class="title color-title">{{about.header.subtitle}}</span> -->
                 <!-- 简介 -->
-                <span data-aos="fade-in" class="brief typer black">
+                <!-- <span data-aos="fade-in" class="brief typer black">
                     {{about.content.name}}，
                     <vue3-typer :text="about.content.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer>
-                </span>
+                </span> -->
                 <!-- 正文 -->
-                <vue-markdown data-aos="fade-in">{{about.content.md}}</vue-markdown>
+                <!-- <vue-markdown data-aos="fade-in">{{about.content.md}}</vue-markdown> -->
                 <!-- 关键词 -->
                 <a-row data-aos="fade-in" class="keys-row" type="flex" align="top">
-                    <a-col class="keys-col" v-for="(value, name) in about.keys" v-bind:key="name"
+                    <!-- <a-col class="keys-col" v-for="(value, name) in about.keys" v-bind:key="name"
                            :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
                         <span class="key">{{name}}:</span>
                         <a class="value" v-if="isUrl(value)" :href="value" target="_blank">{{value | simplifyUrl}}</a>
                         <span v-else>{{value}}</span>
-                    </a-col>
+                    </a-col> -->
                 </a-row>
             </a-col>
         </a-row>
@@ -40,7 +40,7 @@
     import ModuleSkeleton from '@/components/module/ModuleSkeleton.vue';
     import {Module} from '@/api/user_interface';
     // tslint:disable-next-line:no-var-requires
-    import {VueTyper} from 'vue3-typer';
+    // import {VueTyper} from 'vue3-typer';
     // tslint:disable-next-line:no-var-requires
     // import VueMarkdown from 'vue-markdown';
 
@@ -48,14 +48,14 @@
         components: {
             ModuleHeader,
             ModuleSkeleton,
-            VueTyper,
+            // VueTyper,
             // VueMarkdown,
         },
-        computed: {
-            about(): Module {
-                return this.$store.getters.getModule('about');
-            },
-        },
+        // computed: {
+        //     about(): Module {
+        //         return this.$store.getters.getModule('about');
+        //     },
+        // },
         methods: {
             /**
              * 检测是否为url
@@ -76,16 +76,16 @@
                 return re.test(content);
             },
         },
-        filters: {
-            /**
-             * 简化url
-             * @param url
-             */
-            simplifyUrl(url: string): string {
-                const strRegex = /^(((https|http|ftp|rtsp|mms):)?\/\/)?/;
-                return url.replace(strRegex, '');
-            },
-        },
+        // filters: {
+        //     /**
+        //      * 简化url
+        //      * @param url
+        //      */
+        //     simplifyUrl(url: string): string {
+        //         const strRegex = /^(((https|http|ftp|rtsp|mms):)?\/\/)?/;
+        //         return url.replace(strRegex, '');
+        //     },
+        // },
     })
     export default class About extends Vue {
     }

@@ -5,6 +5,7 @@
   <a-layout>
       <!-- 首屏 -->
       <a-layout-header class="layout-header"><Banner/></a-layout-header>
+      <Footer/>
       <!-- 内容 -->
       <!-- <a-layout> -->
           <!-- 菜单 -->
@@ -41,20 +42,20 @@
   // import {mapGetters} from 'vuex';
 
   import Banner from '@/components/Banner.vue';
-  // import Menu from '@/components/Menu.vue';
-  // import About from '@/components/About.vue';
+//   import Menu from '@/components/Menu.vue';
+//   import About from '@/components/About.vue';
   // import Experience from '@/components/Experience.vue';
   // import Blog from '@/components/Blog.vue';
-  // import Footer from '@/components/Footer.vue';
+  import Footer from '@/components/Footer.vue';
 
   @Component({
       components: {
           Banner,
-          // Menu,
-          // About,
+        //   Menu,
+        //   About,
           // Experience,
           // Blog,
-          // Footer,
+          Footer,
       },
       // computed: {
           // ...mapGetters(['moduleIds']),
