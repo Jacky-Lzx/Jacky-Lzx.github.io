@@ -20,22 +20,24 @@
 <script lang="ts">
     import {Component, Vue} from 'vue-facing-decorator';
     import ModuleHeader from '@/components/module/ModuleHeader.vue';
-    import {Module} from '@/api/user_interface';
+    import type {Module} from '@/api/user_interface';
     // tslint:disable-next-line:no-var-requires
     // import VueMarkdown from 'vue-markdown';
+    import { useCounterStore } from '@/store';
 
     @Component({
         components: {
             ModuleHeader,
             // VueMarkdown,
         },
-        computed: {
-            experience(): Module {
-                return this.$store.getters.getModule('experience');
-            },
-        },
+        // computed: {
+        //     experience(): Module {
+        //         return this.$store.getters.getModule('experience');
+        //     },
+        // },
     })
     export default class About extends Vue {
+        experience = useCounterStore().getModule('experience')
     }
 </script>
 

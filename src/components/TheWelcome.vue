@@ -43,8 +43,8 @@
   import Banner from '@/components/Banner.vue';
   import Menu from '@/components/Menu.vue';
   import About from '@/components/About.vue';
-  // import Experience from '@/components/Experience.vue';
-  // import Blog from '@/components/Blog.vue';
+  import Experience from '@/components/Experience.vue';
+//   import Blog from '@/components/Blog.vue';
   import Footer from '@/components/Footer.vue';
   import { useCounterStore } from '@/store';
 
@@ -53,7 +53,7 @@
           Banner,
           Menu,
           About,
-          // Experience,
+          Experience,
           // Blog,
           Footer,
       },
