@@ -2,12 +2,12 @@
 
 <template>
     <div class="banner" id="banner">
-        <div class="bg back"><h1>林小二奋笔疾书...</h1></div>
-        <div class="fork-me">
+        <div class="bg back"><h1>Loading...</h1></div>
+        <!-- <div class="fork-me">
             <a class="fork-me-link" href="https://github.com/manerfan/vuesume/wiki" target="_blank">
                 <span class="fork-me-text">Docs On GitHub</span>
             </a>
-        </div>
+        </div> -->
         <div data-aos="fade-in" class="bg"></div>
         <div data-aos="fade-in" class="desc">
             <!-- <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image"> -->
@@ -19,16 +19,19 @@
                 </template>
             </a-avatar>
             <div>
-                <h1>{{'林中小舍'}}</h1>
-                <!-- <h1>{{banner.title || '林中小舍'}}</h1> -->
-                <!-- <h3 class="typer white">
-                    鄙人，
-                    <vue3-typer :text="banner.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer>
-                </h3> -->
+                <h1>{{banner.title || 'Zexi Li'}}</h1>
+                <h3 class="typer white">
+                    <!-- <vue3-typer :text="'Test'"></vue3-typer> -->
+                    <!-- <vue-typer :text="banner.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue-typer> -->
+                    <vue-typer :text="banner.desc || 'Empty'"></vue-typer>
+                    <!-- <vue3-typer :text="banner.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer> -->
+                </h3>
             </div>
         </div>
-        <a data-aos="fade-in" class="scroll-next animated infinite bounce" href="#anchor-next" v-smooth-scroll>
-            <a-icon type="double-right"/>
+        <a data-aos="fade-in" class="scroll-next animate__animated animate__bounce animate__infinite" href="#anchor-next" v-smooth-scroll>
+            <!-- <a-icon type="double-right"/> -->
+            <!-- <UpCircleOutlined /> -->
+            <DoubleRightOutlined />
         </a>
     </div>
 </template>
@@ -36,13 +39,18 @@
 <script lang="ts">
     import {Component, Vue} from 'vue-facing-decorator';
     // import {mapGetters} from 'vuex';
+    import { UpCircleOutlined, DoubleRightOutlined } from '@ant-design/icons-vue';
 
     // tslint:disable-next-line:no-var-requires
     // import {VueTyper} from 'vue3-typer';
 
+    import { useCounterStore } from '@/store';
+
     @Component({
         components: {
             // VueTyper,
+            UpCircleOutlined,
+            DoubleRightOutlined,
             Badge: () => import('@/components/footer/Badge.vue'),
         },
         // computed: {
@@ -50,6 +58,7 @@
         // },
     })
     export default class Banner extends Vue {
+        banner = useCounterStore().banner;
     }
 </script>
 
@@ -146,7 +155,7 @@
             animation-delay: 1s;
 
             * {
-                transform: rotate(45deg);
+                transform: rotate(90deg);
             }
         }
     }

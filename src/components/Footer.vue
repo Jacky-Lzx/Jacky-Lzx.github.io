@@ -1,7 +1,6 @@
 <!-- 页脚 -->
 
 <template>
-    <h1>test_footer</h1>
     <a-row class="footer" type="flex" justify="center" align="middle" :gutter="2">
         <!-- 版权 -->
         <a-col :xs="24" :sm="8" :md="6" :lg="6" :xl="6"><Copyrights color="ghostwhite" :size="1"/></a-col>

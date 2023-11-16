@@ -10,7 +10,8 @@
                         <h1 class="title">{{card.title}}</h1>
                         <span v-if="!!card.subtitle" class="sub-title">{{card.subtitle}}</span>
                     </template>
-                    <vue-markdown>{{card.md}}</vue-markdown>
+                    <div v-html="mdit.render(card.md)"></div>
+                    <!-- <vue-markdown>{{card.md}}</vue-markdown> -->
                 </a-card>
             </a-timeline-item>
         </a-timeline>
@@ -25,6 +26,8 @@
     // import VueMarkdown from 'vue-markdown';
     import { useCounterStore } from '@/store';
 
+    import MarkdownIt from 'markdown-it';
+
     @Component({
         components: {
             ModuleHeader,
@@ -38,6 +41,8 @@
     })
     export default class About extends Vue {
         experience = useCounterStore().getModule('experience')
+
+        mdit = new MarkdownIt()
     }
 </script>
 

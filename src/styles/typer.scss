@@ -45,3 +45,100 @@ vue3-typer {
     }
   }
 }
+
+// .vue-typer {
+  // font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+// }
+
+// .vue-typer ..char.typed {
+//   color: $--font-color !important;
+// }
+// .vue-typer .custom.char.selected {
+//   // color: $--font-color;
+//   color: $--font-color;
+//   background-color: transparent;
+//   text-decoration: line-through;
+// }
+
+// .vue-typer .custom.caret {
+//   display: none;
+// }
+
+/* SCSS */
+.vue-typer {
+  /* Styles for the vue-typer container
+     e.g. font-family, font-size  */
+  .char {
+    /* Styles for each character
+       e.g. color, background-color */
+    // color: $--font-color;
+
+    &.typed {
+      /* Styles specific to typed characters
+         i.e. characters to the left of the caret */
+      color: $--font-color;
+    }
+    &.selected {
+      /* Styles specific to selected characters
+         i.e. characters to the right of the caret while VueTyper's
+              'eraseStyle' is set to a selection-based style */
+      color: $--font-color;
+      background-color: $--selection-color;
+      // text-decoration: line-through;
+
+    }
+    &.erased {
+      /* Styles specific to erased characters
+         i.e. characters to the right of the caret while VueTyper's
+              'eraseStyle' is set to a non-selection-based style */
+    }
+  }
+
+  .caret {
+    /* Styles for the caret
+       e.g. background-color, animation, display */
+    width: 4px;
+    // color: $--selection-color;
+    // background-color: $--selection-color;
+
+    &.pre-type {
+      /* Styles for the caret when it is idle before typing
+         i.e. before a string starts being typed, during 'preTypeDelay' */
+      color: $--selection-color;
+      background-color: $--selection-color;
+    }
+    &.pre-erase {
+      /* Styles for the caret when it is idle before erasing
+         i.e. before a string starts being erased, during 'preEraseDelay' */
+      color: $--selection-color;
+      background-color: $--selection-color;
+    }
+    &.idle {
+      /* Styles for the caret when it is idle, but VueTyper has not yet completed typing
+         i.e. when 'pre-type' or 'pre-erase' is set, but not 'complete' */
+      color: $--selection-color;
+      background-color: $--selection-color;
+    }
+    &.typing {
+      /* Styles for the caret while VueTyper is typing
+         i.e. when the caret is moving forwards */
+      color: $--selection-color;
+      background-color: $--selection-color;
+    }
+    &.selecting {
+      /* Styles for the caret while VueTyper is selecting
+         i.e. when the caret is moving backwards and 'eraseStyle' is
+         set to a selection-based style */
+      color: $--selection-color;
+      background-color: $--selection-color;
+    }
+    &.erasing {
+      /* Styles for the caret while VueTyper is erasing
+         i.e. when the caret is moving backwards and 'eraseStyle' is
+         set to a non-selection-based style */
+    }
+    &.complete {
+      /* Styles for the idle caret when VueTyper has finished all typing/erasing */
+    }
+  }
+}

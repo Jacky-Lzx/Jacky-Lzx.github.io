@@ -19,7 +19,8 @@
                     <vue3-typer :text="about.content.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer>
                 </span>
                 <!-- 正文 -->
-                <vue-markdown data-aos="fade-in">{{about.content.md}}</vue-markdown>
+                <div v-html="mdit.render(content_md)"></div>
+                <!-- <vue-markdown data-aos="fade-in">{{content_md}}</vue-markdown> -->
                 <!-- 关键词 -->
                 <a-row data-aos="fade-in" class="keys-row" type="flex" align="top">
                     <a-col class="keys-col" v-for="(value, name) in about.keys" v-bind:key="name"
@@ -44,6 +45,8 @@
     // tslint:disable-next-line:no-var-requires
     // import VueMarkdown from 'vue-markdown';
     import { useCounterStore } from '@/store';
+    import MarkdownIt from 'markdown-it';
+
 
     @Component({
         components: {
@@ -90,6 +93,9 @@
     })
     export default class About extends Vue {
         about = useCounterStore().getModule('about')
+
+        mdit = new MarkdownIt();
+        content_md = this.about.content.md
 
         isUrl(content: string): boolean {
             const strRegex = '^(((https|http|ftp|rtsp|mms):)?//)'

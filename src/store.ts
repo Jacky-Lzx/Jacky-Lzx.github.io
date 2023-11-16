@@ -7,7 +7,7 @@ import type { Module, UserData, Banner } from '@/api/user_interface';
 
 // Vue.use(Vuex);
 
-const DEFAULT_TITLE = '林舍';
+const DEFAULT_TITLE = 'Zexi Li';
 const DEFAULT_MODULE = {display: false, anchor: {id: '', icon: '', name: ''}, header: {title: '', subtitle: ''}};
 
 function find(modules: Module[], id: string) {
@@ -102,7 +102,7 @@ export const useCounterStore = defineStore('counter', {
             },
         },
         modules: [
-            {display: true, anchor: {id: 'banner', icon: 'home', name: 'Home'}, header: {title: 'Home', subtitle: 'Home'}},
+            // {display: true, anchor: {id: 'banner', icon: 'home', name: 'Home'}, header: {title: 'Home', subtitle: 'Home'}},
             {
                 display: true,
                 anchor: {
@@ -115,7 +115,7 @@ export const useCounterStore = defineStore('counter', {
                   subtitle: "about me",
                 },
                 content: {
-                  name: "林舍",
+                  name: "Zexi Li",
                   desc: [
                     "林中通幽静",
                     "深山藏小舍",
@@ -225,13 +225,14 @@ export const useCounterStore = defineStore('counter', {
                   icon: "home",
                   name: "首页",
                 },
-                title: "林中小舍",
+                title: "Zexi Li",
                 desc: [
-                  "北方汉子",
-                  "宝爸一颗",
-                  "码农一枚",
-                  "花名林舍",
-                  "工作五六载",
+                  "You've been on this page for so long, aren't you?"
+                  // "北方汉子",
+                  // "宝爸一颗",
+                  // "码农一枚",
+                  // "花名林舍",
+                  // "工作五六载",
                 ],
             }
         },

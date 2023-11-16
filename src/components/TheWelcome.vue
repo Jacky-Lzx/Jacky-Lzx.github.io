@@ -1,7 +1,6 @@
 <!-- 整体的框架 -->
 
 <template>
-  <h2>test_theWelcome</h2>
   <a-layout>
       <!-- 首屏 -->
       <a-layout-header class="layout-header"><Banner/></a-layout-header>
