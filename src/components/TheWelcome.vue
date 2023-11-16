@@ -11,10 +11,10 @@
           <!-- 正文部分 -->
           <a-layout class="layout-content">
               <!-- 小屏侧边栏抽屉按钮 -->
-              <!-- <a-affix>
-                  <a-button :class="{'sider-menu-trigger': true, 'drawer-closed': !menuDrawerVisible, 'drawer-open': menuDrawerVisible}"
-                          shape="circle" size="large" :icon="menuDrawerVisible ? 'arrow-left' : 'bars'" @click="toggleMenuDrawer"></a-button>
-              </a-affix> -->
+              <a-affix>
+                <a-button :class="{'sider-menu-trigger': true, 'drawer-closed': !menuDrawerVisible, 'drawer-open': menuDrawerVisible}" type="primary" shape="circle" size="large" :icon="menuDrawerVisible ? h(LeftOutlined) : h(UnorderedListOutlined)" @click="toggleMenuDrawer"></a-button>
+                <!-- <a-button :class="{'sider-menu-trigger': true, 'drawer-closed': !menuDrawerVisible, 'drawer-open': menuDrawerVisible}" shape="circle" size="large" :icon="menuDrawerVisible ? 'arrow-left' : 'bars'" @click="toggleMenuDrawer"> </a-button> -->
+              </a-affix>
               <!-- 正文锚点 -->
               <a-layout-content><div id="anchor-next"></div></a-layout-content>
               <!-- 根据配置动态模块的内容和顺序 -->
@@ -29,9 +29,9 @@
       </a-layout>
 
       <!-- 小屏侧边栏抽屉 -->
-      <!-- <a-drawer placement="left" :closable="true" :visible="menuDrawerVisible" @close="onMenuDrawerClose"> -->
-      <!--     <Menu @menuClick="onMenuDrawerClose" /> -->
-      <!-- </a-drawer> -->
+      <a-drawer placement="left" :closable="true" :visible="menuDrawerVisible" @close="onMenuDrawerClose">
+          <Menu @menuClick="onMenuDrawerClose" />
+      </a-drawer>
   </a-layout>
 </template>
 
@@ -46,9 +46,13 @@
 //   import Blog from '@/components/Blog.vue';
   import Footer from '@/components/Footer.vue';
   import { useCounterStore } from '@/store';
+  import { UnorderedListOutlined, LeftOutlined } from '@ant-design/icons-vue';
+  import { h } from 'vue';
 
   @Component({
       components: {
+        //   h,
+        //   UnorderedListOutlined,
           Banner,
           Menu,
           About,
@@ -61,6 +65,10 @@
       // },
   })
   export default class Home extends Vue {
+      h = h
+      UnorderedListOutlined = UnorderedListOutlined;
+      LeftOutlined = LeftOutlined;
+
       store = useCounterStore()
       moduleIds = this.store.moduleIds
 
