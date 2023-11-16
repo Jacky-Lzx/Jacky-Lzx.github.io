@@ -24,6 +24,8 @@ import "vue3-typer/dist/vue-typer.css"
 // const VueTyper = window.VueTyper.default
 import './styles/typer.scss';
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -36,10 +38,12 @@ import VueSmoothScroll from 'v-smooth-scroll'
 const pinia = createPinia()
 const app = createApp(App)
 
+
 app.use(Antd)
 app.use(router)
 app.use(pinia)
 app.use(VueSmoothScroll)
 app.use(VueTyper)
+app.use(VueAxios, axios)
 
 app.mount('#app')

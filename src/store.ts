@@ -1,7 +1,6 @@
 // import Vue from 'vue';
 // import Vuex from 'vuex';
-// import api from '@/api';
-// import {Module, UserData, Banner} from '@/api/user_interface';
+import api from '@/api';
 import _ from 'lodash';
 import type { Module, UserData, Banner } from '@/api/user_interface';
 
@@ -240,4 +239,11 @@ export const useCounterStore = defineStore('counter', {
            return find(state.modules, id);
         },
     },
+    // actions: {
+    //     init({commit}) {
+    //         api.init((userData: UserData) => {
+    //             commit('init', userData);
+    //         });
+    //     },
+    // }
   })

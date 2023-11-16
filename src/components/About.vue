@@ -122,6 +122,7 @@
 <style scoped lang="scss">
     @import '../styles/variable';
 
+
     .about {
         .col {
             padding: 0 1rem;

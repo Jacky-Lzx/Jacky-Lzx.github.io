@@ -18,11 +18,16 @@
               <!-- 正文锚点 -->
               <a-layout-content><div id="anchor-next"></div></a-layout-content>
               <!-- 根据配置动态模块的内容和顺序 -->
-              <a-layout-content v-for="id in moduleIds" v-bind:key="id">
+              <!-- <a-layout-content v-for="id in moduleIds" v-bind:key="id">
                   <About v-if="id === 'about'"/>
                   <Blog v-if="id === 'blog'"/>
                   <Experience v-if="id === 'experience'"/>
-              </a-layout-content>
+              </a-layout-content> -->
+              <Content v-for="id in moduleIds" v-bind:key="id">
+                  <About v-if="id === 'about'"/>
+                  <Blog v-if="id === 'blog'"/>
+                  <Experience v-if="id === 'experience'"/>
+              </Content>
               <!-- 页脚 -->
               <a-layout-footer><Footer/></a-layout-footer>
           </a-layout>
@@ -85,6 +90,10 @@
 <style scoped lang="scss">
   @import '../styles/variable';
 
+    .content {
+        padding: 2rem;
+        text-align: left;
+    }
   .layout-header {
       z-index: 0;
       height: 100vh;
