@@ -12,18 +12,18 @@
           <!-- 正文部分 -->
           <a-layout class="layout-content">
               <!-- 小屏侧边栏抽屉按钮 -->
-              <!-- <a-affix> -->
-                  <!-- <a-button :class="{'sider-menu-trigger': true, 'drawer-closed': !menuDrawerVisible, 'drawer-open': menuDrawerVisible}" -->
-                          <!-- shape="circle" size="large" :icon="menuDrawerVisible ? 'arrow-left' : 'bars'" @click="toggleMenuDrawer"></a-button> -->
-              <!-- </a-affix> -->
+              <!-- <a-affix>
+                  <a-button :class="{'sider-menu-trigger': true, 'drawer-closed': !menuDrawerVisible, 'drawer-open': menuDrawerVisible}"
+                          shape="circle" size="large" :icon="menuDrawerVisible ? 'arrow-left' : 'bars'" @click="toggleMenuDrawer"></a-button>
+              </a-affix> -->
               <!-- 正文锚点 -->
-              <!-- <a-layout-content><div id="anchor-next"></div></a-layout-content> -->
+              <a-layout-content><div id="anchor-next"></div></a-layout-content>
               <!-- 根据配置动态模块的内容和顺序 -->
-              <!-- <a-layout-content v-for="id in moduleIds" v-bind:key="id"> -->
-                  <!-- <About v-if="id === 'about'"/> -->
-                  <!-- <Blog v-if="id === 'blog'"/> -->
-                  <!-- <Experience v-if="id === 'experience'"/> -->
-              <!-- </a-layout-content> -->
+              <a-layout-content v-for="id in moduleIds" v-bind:key="id">
+                  <About v-if="id === 'about'"/>
+                  <Blog v-if="id === 'blog'"/>
+                  <Experience v-if="id === 'experience'"/>
+              </a-layout-content>
               <!-- 页脚 -->
               <a-layout-footer><Footer/></a-layout-footer>
           </a-layout>
@@ -42,16 +42,17 @@
 
   import Banner from '@/components/Banner.vue';
   import Menu from '@/components/Menu.vue';
-//   import About from '@/components/About.vue';
+  import About from '@/components/About.vue';
   // import Experience from '@/components/Experience.vue';
   // import Blog from '@/components/Blog.vue';
   import Footer from '@/components/Footer.vue';
+  import { useCounterStore } from '@/store';
 
   @Component({
       components: {
           Banner,
           Menu,
-        //   About,
+          About,
           // Experience,
           // Blog,
           Footer,
@@ -61,11 +62,14 @@
       // },
   })
   export default class Home extends Vue {
-      private menuDrawerVisible = false;
-      private toggleMenuDrawer() {
+      store = useCounterStore()
+      moduleIds = this.store.moduleIds
+
+      public menuDrawerVisible = false;
+      public toggleMenuDrawer() {
           this.menuDrawerVisible = !this.menuDrawerVisible;
       }
-      private onMenuDrawerClose() {
+      public onMenuDrawerClose() {
           this.menuDrawerVisible = false;
       }
   }

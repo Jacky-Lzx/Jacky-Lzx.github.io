@@ -12,22 +12,22 @@
             <!-- 内容 -->
             <a-col class="color-content col" :xs="24" :sm="24" :md="24" :lg="14" :xl="16">
                 <!-- title -->
-                <!-- <span data-aos="fade-in" class="title color-title">{{about.header.subtitle}}</span> -->
+                <span data-aos="fade-in" class="title color-title">{{about.header.subtitle}}</span>
                 <!-- 简介 -->
-                <!-- <span data-aos="fade-in" class="brief typer black">
+                <span data-aos="fade-in" class="brief typer black">
                     {{about.content.name}}，
                     <vue3-typer :text="about.content.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer>
-                </span> -->
+                </span>
                 <!-- 正文 -->
-                <!-- <vue-markdown data-aos="fade-in">{{about.content.md}}</vue-markdown> -->
+                <vue-markdown data-aos="fade-in">{{about.content.md}}</vue-markdown>
                 <!-- 关键词 -->
                 <a-row data-aos="fade-in" class="keys-row" type="flex" align="top">
-                    <!-- <a-col class="keys-col" v-for="(value, name) in about.keys" v-bind:key="name"
+                    <a-col class="keys-col" v-for="(value, name) in about.keys" v-bind:key="name"
                            :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
                         <span class="key">{{name}}:</span>
-                        <a class="value" v-if="isUrl(value)" :href="value" target="_blank">{{value | simplifyUrl}}</a>
+                        <a class="value" v-if="isUrl(value)" :href="value" target="_blank">{{value || simplifyUrl(value)}}</a>
                         <span v-else>{{value}}</span>
-                    </a-col> -->
+                    </a-col>
                 </a-row>
             </a-col>
         </a-row>
@@ -38,11 +38,12 @@
     import {Component, Vue} from 'vue-facing-decorator';
     import ModuleHeader from '@/components/module/ModuleHeader.vue';
     import ModuleSkeleton from '@/components/module/ModuleSkeleton.vue';
-    import {Module} from '@/api/user_interface';
+    import type {Module} from '@/api/user_interface';
     // tslint:disable-next-line:no-var-requires
     // import {VueTyper} from 'vue3-typer';
     // tslint:disable-next-line:no-var-requires
     // import VueMarkdown from 'vue-markdown';
+    import { useCounterStore } from '@/store';
 
     @Component({
         components: {
@@ -56,26 +57,26 @@
         //         return this.$store.getters.getModule('about');
         //     },
         // },
-        methods: {
-            /**
-             * 检测是否为url
-             * @param content 需要检测的内容
-             */
-            isUrl(content: string): boolean {
-                const strRegex = '^(((https|http|ftp|rtsp|mms):)?//)'
-                    + '?(([0-9a-z_!~*\'().&=+$%-]+: )?[0-9a-z_!~*\'().&=+$%-]+@)?' // ftp的user@
-                    + '(([0-9]{1,3}.){3}[0-9]{1,3}' // IP形式的URL- 199.194.52.184
-                    + '|' // 允许IP和DOMAIN（域名）
-                    + '([0-9a-z_!~*\'()-]+.)*' // 域名- www.
-                    + '([0-9a-z][0-9a-z-]{0,61})?[0-9a-z].' // 二级域名
-                    + '[a-z]{2,6})' // first level domain- .com or .museum
-                    + '(:[0-9]{1,4})?' // 端口- :80
-                    + '((/?)|' // a slash isn't required if there is no file name
-                    + '(/[0-9a-z_!~*\'().;?:@&=+$,%#-]+)+/?)$';
-                const re = new RegExp(strRegex);
-                return re.test(content);
-            },
-        },
+        // methods: {
+        //     /**
+        //      * 检测是否为url
+        //      * @param content 需要检测的内容
+        //      */
+        //     isUrl(content: string): boolean {
+        //         const strRegex = '^(((https|http|ftp|rtsp|mms):)?//)'
+        //             + '?(([0-9a-z_!~*\'().&=+$%-]+: )?[0-9a-z_!~*\'().&=+$%-]+@)?' // ftp的user@
+        //             + '(([0-9]{1,3}.){3}[0-9]{1,3}' // IP形式的URL- 199.194.52.184
+        //             + '|' // 允许IP和DOMAIN（域名）
+        //             + '([0-9a-z_!~*\'()-]+.)*' // 域名- www.
+        //             + '([0-9a-z][0-9a-z-]{0,61})?[0-9a-z].' // 二级域名
+        //             + '[a-z]{2,6})' // first level domain- .com or .museum
+        //             + '(:[0-9]{1,4})?' // 端口- :80
+        //             + '((/?)|' // a slash isn't required if there is no file name
+        //             + '(/[0-9a-z_!~*\'().;?:@&=+$,%#-]+)+/?)$';
+        //         const re = new RegExp(strRegex);
+        //         return re.test(content);
+        //     },
+        // },
         // filters: {
         //     /**
         //      * 简化url
@@ -88,6 +89,27 @@
         // },
     })
     export default class About extends Vue {
+        about = useCounterStore().getModule('about')
+
+        isUrl(content: string): boolean {
+            const strRegex = '^(((https|http|ftp|rtsp|mms):)?//)'
+                + '?(([0-9a-z_!~*\'().&=+$%-]+: )?[0-9a-z_!~*\'().&=+$%-]+@)?' // ftp的user@
+                + '(([0-9]{1,3}.){3}[0-9]{1,3}' // IP形式的URL- 199.194.52.184
+                + '|' // 允许IP和DOMAIN（域名）
+                + '([0-9a-z_!~*\'()-]+.)*' // 域名- www.
+                + '([0-9a-z][0-9a-z-]{0,61})?[0-9a-z].' // 二级域名
+                + '[a-z]{2,6})' // first level domain- .com or .museum
+                + '(:[0-9]{1,4})?' // 端口- :80
+                + '((/?)|' // a slash isn't required if there is no file name
+                + '(/[0-9a-z_!~*\'().;?:@&=+$,%#-]+)+/?)$';
+            const re = new RegExp(strRegex);
+            return re.test(content);
+        }
+        simplifyUrl(url: string): string {
+            const strRegex = /^(((https|http|ftp|rtsp|mms):)?\/\/)?/;
+            return url.replace(strRegex, '');
+        }
+
     }
 </script>
 
