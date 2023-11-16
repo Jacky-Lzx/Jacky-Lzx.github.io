@@ -4,19 +4,24 @@
     <a-layout class="layout-menu">
         <!-- 头像 -->
         <div class="header">
-            <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image">
+            <!-- <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image">
                 <img draggable="false" src="../assets/avatar.jpg">
-            </span>
-            <!-- <span>{{banner.name|| '林中小舍'}}</span> -->
+            </span> -->
+            <a-avatar :size="120" class="avatar">
+                <template #icon>
+                    <img src="../assets/avatar.jpg">
+                </template>
+            </a-avatar>
+            <span>{{store.banner.name|| '林中小舍'}}</span>
         </div>
         <!-- 菜单 -->
         <a-layout-content class="menu">
             <a-menu>
                 <!-- 根据配置动态模块的内容和顺序 -->
-                <!-- <a-menu-item v-for="m in menus" v-bind:key="m.id">
+                <a-menu-item v-for="m in menus" v-bind:key="m.id">
                     <a-icon :type="m.icon" />
                     <a v-smooth-scroll :href="'#' + m.id" @click="closeMenuDrawer">{{m.name}}</a>
-                </a-menu-item> -->
+                </a-menu-item>
             </a-menu>
         </a-layout-content>
         <!-- 菜单页脚 -->
@@ -37,7 +42,8 @@
     import {Component, Vue} from 'vue-facing-decorator';
     import Copyrights from '@/components/footer/Copyrights.vue';
     import Social from '@/components/footer/Social.vue';
-    import {mapGetters} from 'vuex';
+    // import {mapGetters} from 'vuex';
+    import { useCounterStore } from '@/store';
 
     @Component({
         components: {
@@ -49,7 +55,9 @@
         // },
     })
     export default class Menu extends Vue {
-        private closeMenuDrawer() {
+        store = useCounterStore()
+        menus = this.store.menus
+        public closeMenuDrawer() {
             this.$emit('menuClick');
         }
     }

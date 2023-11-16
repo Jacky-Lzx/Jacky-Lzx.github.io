@@ -2,7 +2,7 @@
 // import json5 from 'json5';
 // import {UserData} from '@/api/user_interface';
 // import {Rss} from '@/api/rss_interface';
-//
+
 // export default {
 //     /**
 //      * 获取data.json5内容
@@ -17,7 +17,7 @@
 //             cb(json5.parse(data));
 //         });
 //     },
-//
+
 //     /**
 //      * 获取rss订阅
 //      * https://rss2json.com/
@@ -32,4 +32,3 @@
 //         }).catch(error).finally(final);
 //     },
 // };
-//

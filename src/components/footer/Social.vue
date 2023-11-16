@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-facing-decorator';
+    import {Prop, Component, Vue} from 'vue-facing-decorator';
     import {GithubOutlined, WechatOutlined, TwitterOutlined, LinkedinOutlined} from '@ant-design/icons-vue';
     // import {mapGetters} from 'vuex';
 
@@ -39,8 +39,10 @@
         // },
     })
     export default class Social extends Vue {
-        color = 'white';
-        size = 1;
+        @Prop
+        color?: string
+        @Prop
+        size?: number
 
         get social() {
             return {
@@ -48,7 +50,7 @@
                 twitter: '',
                 linkedin: '',
             }
-        };
+        }
     }
 </script>
 

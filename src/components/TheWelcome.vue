@@ -5,13 +5,12 @@
   <a-layout>
       <!-- 首屏 -->
       <a-layout-header class="layout-header"><Banner/></a-layout-header>
-      <Footer/>
       <!-- 内容 -->
-      <!-- <a-layout> -->
+      <a-layout>
           <!-- 菜单 -->
-          <!-- <a-layout-sider class="layout-sider" width="320"><a-affix><Menu/></a-affix></a-layout-sider> -->
+          <a-layout-sider class="layout-sider" width="320"><a-affix><Menu/></a-affix></a-layout-sider>
           <!-- 正文部分 -->
-          <!-- <a-layout class="layout-content"> -->
+          <a-layout class="layout-content">
               <!-- 小屏侧边栏抽屉按钮 -->
               <!-- <a-affix> -->
                   <!-- <a-button :class="{'sider-menu-trigger': true, 'drawer-closed': !menuDrawerVisible, 'drawer-open': menuDrawerVisible}" -->
@@ -26,9 +25,9 @@
                   <!-- <Experience v-if="id === 'experience'"/> -->
               <!-- </a-layout-content> -->
               <!-- 页脚 -->
-              <!-- <a-layout-footer><Footer/></a-layout-footer> -->
-          <!-- </a-layout> -->
-      <!-- </a-layout> -->
+              <a-layout-footer><Footer/></a-layout-footer>
+          </a-layout>
+      </a-layout>
 
       <!-- 小屏侧边栏抽屉 -->
       <!-- <a-drawer placement="left" :closable="true" :visible="menuDrawerVisible" @close="onMenuDrawerClose"> -->
@@ -42,7 +41,7 @@
   // import {mapGetters} from 'vuex';
 
   import Banner from '@/components/Banner.vue';
-//   import Menu from '@/components/Menu.vue';
+  import Menu from '@/components/Menu.vue';
 //   import About from '@/components/About.vue';
   // import Experience from '@/components/Experience.vue';
   // import Blog from '@/components/Blog.vue';
@@ -51,7 +50,7 @@
   @Component({
       components: {
           Banner,
-        //   Menu,
+          Menu,
         //   About,
           // Experience,
           // Blog,

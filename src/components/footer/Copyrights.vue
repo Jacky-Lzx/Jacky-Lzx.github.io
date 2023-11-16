@@ -29,7 +29,7 @@ SOFTWARE.
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-facing-decorator';
+    import {Prop, Component, Vue} from 'vue-facing-decorator';
 
     @Component({
         // props: {
@@ -38,7 +38,9 @@ SOFTWARE.
         // },
     })
     export default class Copyrights extends Vue {
-        color = 'white';
-        size = 1;
+        @Prop
+        color ?: string
+        @Prop
+        size ?: number
     }
 </script>
