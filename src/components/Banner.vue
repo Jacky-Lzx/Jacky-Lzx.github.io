@@ -19,11 +19,11 @@
                 </template>
             </a-avatar>
             <div>
-                <h1>{{banner.title || 'Zexi Li'}}</h1>
+                <h1>{{userStore.banner.title || 'Zexi Li'}}</h1>
                 <h3 class="typer white">
                     <!-- <vue3-typer :text="'Test'"></vue3-typer> -->
                     <!-- <vue-typer :text="banner.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue-typer> -->
-                    <vue-typer :text="banner.desc || 'Empty'"></vue-typer>
+                    <vue-typer :text="userStore.banner.desc || 'Empty'"></vue-typer>
                     <!-- <vue3-typer :text="banner.desc || '林舍'" :type-delay='200' eraseStyle='select-all'></vue3-typer> -->
                 </h3>
             </div>
@@ -44,7 +44,7 @@
     // tslint:disable-next-line:no-var-requires
     // import {VueTyper} from 'vue3-typer';
 
-    import { useCounterStore } from '@/store';
+    import { useUserStore } from '@/userStore';
 
     @Component({
         components: {
@@ -58,7 +58,7 @@
         // },
     })
     export default class Banner extends Vue {
-        banner = useCounterStore().banner;
+        userStore = useUserStore();
     }
 </script>
 

@@ -38,7 +38,6 @@ import VueSmoothScroll from 'v-smooth-scroll'
 const pinia = createPinia()
 const app = createApp(App)
 
-
 app.use(Antd)
 app.use(router)
 app.use(pinia)

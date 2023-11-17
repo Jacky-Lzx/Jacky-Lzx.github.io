@@ -23,9 +23,9 @@
                   <Blog v-if="id === 'blog'"/>
                   <Experience v-if="id === 'experience'"/>
               </a-layout-content> -->
-              <Content v-for="id in moduleIds" v-bind:key="id">
+              <Content v-for="id in userStore.moduleIds" v-bind:key="id">
                   <About v-if="id === 'about'"/>
-                  <Blog v-if="id === 'blog'"/>
+                  <!-- <Blog v-if="id === 'blog'"/> -->
                   <Experience v-if="id === 'experience'"/>
               </Content>
               <!-- 页脚 -->
@@ -50,9 +50,9 @@
   import Experience from '@/components/Experience.vue';
 //   import Blog from '@/components/Blog.vue';
   import Footer from '@/components/Footer.vue';
-  import { useCounterStore } from '@/store';
   import { UnorderedListOutlined, LeftOutlined } from '@ant-design/icons-vue';
   import { h } from 'vue';
+  import { useUserStore } from '@/userStore';
 
   @Component({
       components: {
@@ -74,8 +74,7 @@
       UnorderedListOutlined = UnorderedListOutlined;
       LeftOutlined = LeftOutlined;
 
-      store = useCounterStore()
-      moduleIds = this.store.moduleIds
+      userStore = useUserStore();
 
       public menuDrawerVisible = false;
       public toggleMenuDrawer() {

@@ -1,6 +1,7 @@
 <!-- 菜单 -->
 
 <template>
+    <h3>{{store.menus}}</h3>
     <a-layout class="layout-menu">
         <!-- 头像 -->
         <div class="header">
@@ -18,7 +19,7 @@
         <a-layout-content class="menu">
             <a-menu>
                 <!-- 根据配置动态模块的内容和顺序 -->
-                <a-menu-item v-for="m in menus" v-bind:key="m.id">
+                <a-menu-item v-for="m in store.menus" v-bind:key="m.id">
                     <a-icon :type="m.icon" />
                     <a v-smooth-scroll :href="'#' + m.id" @click="closeMenuDrawer">{{m.name}}</a>
                 </a-menu-item>
@@ -43,7 +44,9 @@
     import Copyrights from '@/components/footer/Copyrights.vue';
     import Social from '@/components/footer/Social.vue';
     // import {mapGetters} from 'vuex';
-    import { useCounterStore } from '@/store';
+    // import { useCounterStore } from '@/store';
+
+    import { useUserStore } from '@/userStore';
 
     @Component({
         components: {
@@ -55,8 +58,8 @@
         // },
     })
     export default class Menu extends Vue {
-        store = useCounterStore()
-        menus = this.store.menus
+        store = useUserStore()
+        // menus = this.store.menus
         public closeMenuDrawer() {
             this.$emit('menuClick');
         }

@@ -42,7 +42,8 @@ export interface Banner {
     /**
      * 锚点
      */
-    anchor: Anchor;
+    // Temporarily set it to optional here, until solve the bug in userStore.ts
+    anchor?: Anchor;
 
     // 其他
     [key: string]: any;

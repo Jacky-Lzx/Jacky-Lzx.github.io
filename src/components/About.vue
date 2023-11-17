@@ -44,8 +44,8 @@
     // import {VueTyper} from 'vue3-typer';
     // tslint:disable-next-line:no-var-requires
     // import VueMarkdown from 'vue-markdown';
-    import { useCounterStore } from '@/store';
     import MarkdownIt from 'markdown-it';
+    import { useUserStore } from '@/userStore';
 
 
     @Component({
@@ -92,7 +92,7 @@
         // },
     })
     export default class About extends Vue {
-        about = useCounterStore().getModule('about')
+        about = useUserStore().getModule('about')
 
         mdit = new MarkdownIt();
         content_md = this.about.content.md

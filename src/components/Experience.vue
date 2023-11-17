@@ -24,7 +24,8 @@
     import type {Module} from '@/api/user_interface';
     // tslint:disable-next-line:no-var-requires
     // import VueMarkdown from 'vue-markdown';
-    import { useCounterStore } from '@/store';
+    // import { useCounterStore } from '@/store';
+    import { useUserStore } from '@/userStore';
 
     import MarkdownIt from 'markdown-it';
 
@@ -40,7 +41,7 @@
         // },
     })
     export default class About extends Vue {
-        experience = useCounterStore().getModule('experience')
+        experience =useUserStore().getModule('experience')
 
         mdit = new MarkdownIt()
     }

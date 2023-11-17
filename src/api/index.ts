@@ -8,6 +8,7 @@ export default {
      * 获取data.json5内容
      */
     init(cb: (d: UserData) => void): void {
+        console.log("init() in api")
         axios.get<string>('/data.json5', {
             params: {
                 // 为了解决修改完配置后无法立即生效的问题

@@ -19,6 +19,7 @@
 <script lang="ts">
     import {Prop, Component, Vue} from 'vue-facing-decorator';
     import {GithubOutlined, WechatOutlined, TwitterOutlined, LinkedinOutlined} from '@ant-design/icons-vue';
+    import { useUserStore } from '@/userStore';
     // import {mapGetters} from 'vuex';
 
     @Component({
@@ -40,17 +41,11 @@
     })
     export default class Social extends Vue {
         @Prop
-        color?: string
+        color?: string;
         @Prop
-        size?: number
+        size?: number;
 
-        get social() {
-            return {
-                github: '',
-                twitter: '',
-                linkedin: '',
-            }
-        }
+        social = useUserStore().social;
     }
 </script>
 
