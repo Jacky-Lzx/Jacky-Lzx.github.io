@@ -27,6 +27,9 @@
         </a-layout-content>
         <!-- 菜单页脚 -->
         <a-layout-footer class="footer">
+
+            <!-- Show visitors using clustrmaps -->
+            <component :is="'script'" type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=fecabd&w=300&t=tt&d=8loT08j_FywZW8GzEspcwtiBcRoTRiYIpBXzyGhXng8&co=ffffff&cmo=aeffd7&cmn=9fe3ff&ct=7f7676"></component>
             <!-- 社交 -->
             <a-row type="flex" justify="center" align="middle" :gutter="2">
                 <a-col span="24"><Social color="rgb(136,136,136)" :size="1.2"/></a-col>
