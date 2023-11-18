@@ -15,7 +15,7 @@
             <!-- </span> -->
             <a-avatar :size="160" class="avatar">
                 <template #icon>
-                    <img src="../assets/avatar.jpg">
+                    <img draggable="false" src="../assets/avatar.jpg">
                 </template>
             </a-avatar>
             <div>

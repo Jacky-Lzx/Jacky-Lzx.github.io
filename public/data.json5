@@ -12,10 +12,10 @@
     anchor: {
       id: 'banner',
       icon: 'home',
-      name: '首页'
+      name: 'Zexi Li'
     },
-    title: '林中小舍',
-    desc: ['北方汉子', '宝爸一颗', '码农一枚', '花名林舍', '工作五六载']
+    title: 'Zexi Li',
+    desc: ["You've been on this page for so long, haven't you?"]
   },
   // 正文
   // 不要修改各模块的 anchor.id
@@ -28,7 +28,7 @@
       anchor: {
         id: 'about',
         icon: 'user',
-        name: '关于'
+        name: 'About'
       },
       header: {
         title: 'information',
@@ -57,7 +57,7 @@
       anchor: {
         id: 'experience',
         icon: 'idcard',
-        name: '经历'
+        name: 'Experience'
       },
       header: {
         title: 'experience',
@@ -114,11 +114,11 @@
     },
     // 博客页
     {
-      display: true,
+      display: false,
       anchor: {
         id: 'blog',
         icon: 'profile',
-        name: '博客'
+        name: 'Blog'
       },
       header: {
         title: 'blog',

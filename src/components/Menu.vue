@@ -1,27 +1,27 @@
 <!-- 菜单 -->
 
 <template>
-    <h3>{{store.menus}}</h3>
     <a-layout class="layout-menu">
         <!-- 头像 -->
         <div class="header">
             <!-- <span class="avatar ant-avatar ant-avatar-circle ant-avatar-image">
                 <img draggable="false" src="../assets/avatar.jpg">
             </span> -->
-            <a-avatar :size="120" class="avatar">
+            <a-avatar :size="120" class="avatar ant-avatar ant-avatar-circle ant-avatar-image">
                 <template #icon>
                     <img src="../assets/avatar.jpg">
                 </template>
             </a-avatar>
-            <span>{{store.banner.name|| '林中小舍'}}</span>
+            <span>{{store.banner.title || '林中小舍'}}</span>
         </div>
         <!-- 菜单 -->
         <a-layout-content class="menu">
             <a-menu>
                 <!-- 根据配置动态模块的内容和顺序 -->
-                <a-menu-item v-for="m in store.menus" v-bind:key="m.id">
-                    <a-icon :type="m.icon" />
+                <a-menu-item class="testlzx" v-for="m in store.menus" v-bind:key="m.id">
+                    <!-- <a-icon :type="m.icon" /> -->
                     <a v-smooth-scroll :href="'#' + m.id" @click="closeMenuDrawer">{{m.name}}</a>
+                    <!-- <a-divider dashed /> -->
                 </a-menu-item>
             </a-menu>
         </a-layout-content>
@@ -48,8 +48,20 @@
 
     import { useUserStore } from '@/userStore';
 
+    import { h, ref } from 'vue';
+    import {
+      MailOutlined,
+      CalendarOutlined,
+      AppstoreOutlined,
+      SettingOutlined,
+      StarOutlined,
+    } from '@ant-design/icons-vue';
+    import type { MenuProps } from 'ant-design-vue';
+
     @Component({
         components: {
+            MailOutlined,
+            StarOutlined,
             Copyrights,
             Social,
         },
@@ -63,16 +75,23 @@
         public closeMenuDrawer() {
             this.$emit('menuClick');
         }
+        public handleClick(e: any) {
+          console.log('click ', e);
+        };
     }
 </script>
 
 <style scoped lang="scss">
     @import '../styles/variable';
 
+    .testlzx {
+        border-bottom: 1px dotted #888;
+    }
     .layout-menu {
         width: 100%;
         height: 100vh;
         text-align: center;
+        background-color: white !important;
 
         .header, .menu, .footer {
             background-color: white !important;
