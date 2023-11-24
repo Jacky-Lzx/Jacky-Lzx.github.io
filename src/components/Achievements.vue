@@ -41,7 +41,7 @@
         //     },
         // },
     })
-    export default class About extends Vue {
+    export default class Achievements extends Vue {
         experience =useUserStore().getModule('experience')
 
         mdit = new MarkdownIt()

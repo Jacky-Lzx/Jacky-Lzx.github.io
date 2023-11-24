@@ -28,6 +28,18 @@
                   <!-- <Blog v-if="id === 'blog'"/> -->
                   <Experience v-if="id === 'experience'"/>
               </Content>
+              <!-- <Content key="0" id="about">
+                  <About />
+              </Content> -->
+              <!-- <Content key="1">
+                  <Experience />
+              </Content> -->
+              <!-- <Content key="2">
+                  <Achievements />
+              </Content> -->
+              <Content key="3">
+                  <Publications />
+              </Content>
               <!-- 页脚 -->
               <a-layout-footer><Footer/></a-layout-footer>
           </a-layout>
@@ -48,6 +60,8 @@
   import Menu from '@/components/Menu.vue';
   import About from '@/components/About.vue';
   import Experience from '@/components/Experience.vue';
+  import Achievements from './Achievements.vue';
+  import Publications from './Publications.vue';
 //   import Blog from '@/components/Blog.vue';
   import Footer from '@/components/Footer.vue';
   import { UnorderedListOutlined, LeftOutlined } from '@ant-design/icons-vue';
@@ -63,6 +77,8 @@
           About,
           Experience,
           // Blog,
+          Achievements,
+          Publications,
           Footer,
       },
       // computed: {

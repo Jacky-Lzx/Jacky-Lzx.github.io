@@ -22,14 +22,14 @@
                 <div v-html="mdit.render(content_md)"></div>
                 <!-- <vue-markdown data-aos="fade-in">{{content_md}}</vue-markdown> -->
                 <!-- 关键词 -->
-                <a-row data-aos="fade-in" class="keys-row" type="flex" align="top">
+                <!-- <a-row data-aos="fade-in" class="keys-row" type="flex" align="top">
                     <a-col class="keys-col" v-for="(value, name) in about.keys" v-bind:key="name"
                            :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
                         <span class="key">{{name}}:</span>
                         <a class="value" v-if="isUrl(value)" :href="value" target="_blank">{{value || simplifyUrl(value)}}</a>
                         <span v-else>{{value}}</span>
                     </a-col>
-                </a-row>
+                </a-row> -->
             </a-col>
         </a-row>
     </div>

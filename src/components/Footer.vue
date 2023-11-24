@@ -7,7 +7,7 @@
         <!-- 头像 -->
         <a-col :xs="24" :sm="6" :md="4" :lg="4" :xl="4">
             <a-popover arrowPointAtCenter>
-                <template slot="content"><Badge/></template>
+                <!-- <template slot="content"><Badge/></template> -->
                 <a-avatar :size="64" class="avatar">
                     <template #icon>
                         <img src="../assets/avatar.jpg">

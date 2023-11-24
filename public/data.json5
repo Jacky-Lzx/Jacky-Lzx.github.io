@@ -61,9 +61,29 @@
       },
       cards: [
         {
-          title: 'TODO',
-          //subtitle: "TODO",
-          md: 'TODO'
+          title: 'Shanghai Jiao Tong University',
+          subtitle: '2022.09 -- present',
+          md: 'Ph.D student.'
+        },
+        {
+          title: 'Shanghai Jiao Tong University',
+          subtitle: '2018.09 -- 2022.08',
+          md: 'Undergraduate Student'
+        },
+        {
+          title: 'Hangzhou No. 2 High School',
+          subtitle: '2015.09 -- 2018.08',
+          md: ''
+        },
+        {
+          title: '杭州育才中学',
+          subtitle: '2012.09 -- 2015.08',
+          md: ''
+        },
+        {
+          title: '环山小学',
+          subtitle: '2006.09 -- 2012.08',
+          md: ''
         }
       ]
     },

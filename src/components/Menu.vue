@@ -18,10 +18,22 @@
         <a-layout-content class="menu">
             <a-menu>
                 <!-- 根据配置动态模块的内容和顺序 -->
-                <a-menu-item class="testlzx" v-for="m in store.menus" v-bind:key="m.id">
+                <!-- <a-menu-item class="testlzx" v-for="m in store.menus" v-bind:key="m.id"> -->
                     <!-- <a-icon :type="m.icon" /> -->
-                    <a v-smooth-scroll :href="'#' + m.id" @click="closeMenuDrawer">{{m.name}}</a>
+                    <!-- <a v-smooth-scroll :href="'#' + m.id" @click="closeMenuDrawer">{{m.name}}</a> -->
                     <!-- <a-divider dashed /> -->
+                <!-- </a-menu-item> -->
+                <a-menu-item key="0">
+                    <a v-smooth-scroll href="#banner" @click="closeMenuDrawer"><HomeOutlined />Home Page</a>
+                </a-menu-item>
+                <a-menu-item key="1">
+                    <a v-smooth-scroll :href="'#' + 'about'" @click="closeMenuDrawer"><IdcardOutlined />About</a>
+                </a-menu-item>
+                <a-menu-item key="2">
+                    <a v-smooth-scroll :href="'#' + 'experience'" @click="closeMenuDrawer"><UserOutlined />Experience</a>
+                </a-menu-item>
+                <a-menu-item key="3">
+                    <a v-smooth-scroll :href="'#' + 'publications'" @click="closeMenuDrawer"><BookOutlined />Publications</a>
                 </a-menu-item>
             </a-menu>
         </a-layout-content>
@@ -57,6 +69,10 @@
       CalendarOutlined,
       AppstoreOutlined,
       SettingOutlined,
+      HomeOutlined,
+      BookOutlined,
+      IdcardOutlined,
+      UserOutlined,
       StarOutlined,
     } from '@ant-design/icons-vue';
     import type { MenuProps } from 'ant-design-vue';
@@ -65,6 +81,10 @@
         components: {
             MailOutlined,
             StarOutlined,
+            IdcardOutlined,
+            UserOutlined,
+            HomeOutlined,
+            BookOutlined,
             Copyrights,
             Social,
         },

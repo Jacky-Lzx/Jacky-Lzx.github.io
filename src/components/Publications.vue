@@ -1,20 +1,20 @@
-<!-- 经历 -->
-
 <template>
-    <div class="content" id="experience">
-        <ModuleHeader :title="experience.header.title" :sub-title="experience.header.subtitle"/>
+    <div class="content" id="publications">
+        <ModuleHeader title="Publications" sub-title="My Publications"/>
         <!-- <ModuleHeader sub-title="My Experience" /> -->
         <a-timeline>
-            <a-timeline-item data-aos="fade-in" v-for="card in experience.cards" v-bind:key="card.title + card.subtitle">
-                <a-card class="experience-card" :bordered="true" style="width: 100%">
+            <!-- <a-timeline-item data-aos="fade-in" v-for="card in experience.cards" v-bind:key="card.title + card.subtitle"> -->
+                <!-- <a-card class="experience-card" :bordered="true" style="width: 100%"> -->
                     <!-- <template slot="title"> -->
-                        <h1 class="title">{{card.title}}</h1>
-                        <span v-if="!!card.subtitle" class="sub-title">{{card.subtitle}}</span>
+                        <!-- <h1 class="title">{{card.title}}</h1> -->
+                        <!-- <span v-if="!!card.subtitle" class="sub-title">{{card.subtitle}}</span> -->
                     <!-- </template> -->
-                    <div v-html="mdit.render(card.md)"></div>
+                    <!-- <div v-html="mdit.render(card.md)"></div> -->
                     <!-- <vue-markdown>{{card.md}}</vue-markdown> -->
-                </a-card>
-            </a-timeline-item>
+                <!-- </a-card> -->
+            <!-- </a-timeline-item> -->
+            <a-timeline-item data-aos="fade-in" key="0">TODO0</a-timeline-item>
+            <a-timeline-item data-aos="fade-in" key="1">TODO1</a-timeline-item>
         </a-timeline>
     </div>
 </template>
@@ -41,7 +41,7 @@
         //     },
         // },
     })
-    export default class About extends Vue {
+    export default class Publications extends Vue {
         experience =useUserStore().getModule('experience')
 
         mdit = new MarkdownIt()
