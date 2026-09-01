@@ -1,0 +1,196 @@
+/* ============ Buttons ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all .2s;
+}
+.btn-primary {
+  background: var(--mauve);
+  color: var(--crust);
+  border-color: var(--mauve);
+}
+.btn-primary:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: var(--crust);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--subtext2);
+  border-color: var(--surface1);
+}
+.btn-ghost:hover {
+  border-color: var(--overlay1);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* ============ 回到顶端 ============ */
+.to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--surface1);
+  background: var(--mantle);
+  color: var(--subtext1);
+  font-family: var(--font-mono);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .25s, transform .25s, visibility .25s,
+    border-color .2s, box-shadow .2s;
+}
+.to-top .to-top-arrow { font-size: 14px; line-height: 1; }
+.to-top .to-top-key {
+  font-size: 10px;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 4px;
+  border: 1px solid var(--surface1);
+  color: var(--overlay1);
+  transition: border-color .2s, color .2s;
+}
+.to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.to-top:hover,
+.to-top.active {
+  border-color: var(--mauve);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  transform: translateY(-2px);
+}
+.to-top:hover .to-top-arrow,
+.to-top.active .to-top-arrow { color: var(--mauve); }
+.to-top:hover .to-top-key,
+.to-top.active .to-top-key { border-color: var(--mauve); color: var(--mauve); }
+
+/* ============ Chips ============ */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--surface0);
+  color: var(--subtext2);
+}
+.chip.hl-blue   { color: var(--blue); }
+.chip.hl-mauve  { color: var(--mauve); }
+.chip.hl-teal   { color: var(--teal); }
+.chip.hl-peach  { color: var(--peach); }
+.chip.hl-green  { color: var(--green); }
+.chip.hl-pink   { color: var(--pink); }
+.chip.hl-yellow { color: var(--yellow); }
+
+/* ============ Skill Cards ============ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+}
+.skill-card {
+  background: var(--mantle);
+  border: 1px solid var(--surface0);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: all .25s;
+}
+.skill-card:hover {
+  border-color: var(--surface2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+}
+.skill-card .icon { font-size: 22px; margin-bottom: 10px; }
+.skill-card h3 { font-size: 15px; margin-bottom: 8px; color: var(--text); }
+
+/* ============ Project Cards ============ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: var(--mantle);
+  border: 1px solid var(--surface0);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all .25s;
+}
+.project-card:hover {
+  border-color: var(--mauve);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .35);
+}
+.project-card .p-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.project-card .p-icon { font-size: 20px; }
+.project-card .p-links {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--overlay1);
+}
+.project-card .p-links a:hover { color: var(--blue); }
+.project-card h3 { font-size: 17px; margin-bottom: 8px; }
+.project-card p {
+  color: var(--subtext1);
+  font-size: 14px;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+/* ============ Terminal ============ */
+.terminal {
+  background: var(--mantle);
+  border: 1px solid var(--surface0);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+}
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--surface0);
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red    { background: var(--red); }
+.dot.yellow { background: var(--yellow); }
+.dot.green  { background: var(--green); }
+.terminal-title { margin-left: auto; color: var(--overlay1); font-size: 12px; }
+.terminal-body { padding: 18px 16px; line-height: 2; }
+.t-prompt  { color: var(--green); }
+.t-cmd     { color: var(--text); }
+.t-key     { color: var(--sky); }
+.t-val     { color: var(--yellow); }
+.t-comment { color: var(--overlay0); }

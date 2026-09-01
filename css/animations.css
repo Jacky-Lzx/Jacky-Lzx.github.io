@@ -1,0 +1,23 @@
+/* ============ Animations ============ */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes tl-pulse {
+  0%   { box-shadow: 0 0 0 0 currentColor; }
+  100% { box-shadow: 0 0 0 10px transparent; }
+}
+
+@keyframes live-blink {
+  50% { opacity: .45; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
