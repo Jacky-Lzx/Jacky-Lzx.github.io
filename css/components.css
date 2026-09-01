@@ -123,49 +123,6 @@
 .skill-card .icon { font-size: 22px; margin-bottom: 10px; }
 .skill-card h3 { font-size: 15px; margin-bottom: 8px; color: var(--text); }
 
-/* ============ Project Cards ============ */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-.project-card {
-  background: var(--mantle);
-  border: 1px solid var(--surface0);
-  border-radius: var(--radius);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  transition: all .25s;
-}
-.project-card:hover {
-  border-color: var(--mauve);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, .35);
-}
-.project-card .p-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-.project-card .p-icon { font-size: 20px; }
-.project-card .p-links {
-  margin-left: auto;
-  display: flex;
-  gap: 12px;
-  font-size: 15px;
-  color: var(--overlay1);
-}
-.project-card .p-links a:hover { color: var(--blue); }
-.project-card h3 { font-size: 17px; margin-bottom: 8px; }
-.project-card p {
-  color: var(--subtext1);
-  font-size: 14px;
-  flex: 1;
-  margin-bottom: 16px;
-}
-
 /* ============ Terminal ============ */
 .terminal {
   background: var(--mantle);
@@ -195,3 +152,42 @@
 .t-key del  { color: var(--overlay0); text-decoration-thickness: 1px; }
 .t-val     { color: var(--yellow); }
 .t-comment { color: var(--overlay0); }
+
+/* ============ Publications（terminal 列表）============ */
+.pub-entry { padding: 16px 2px; }
+.pub-entry + .pub-entry { border-top: 1px dashed var(--surface0); }
+.pub-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.pub-num { color: var(--mauve); font-weight: 600; }
+.pub-cn  { color: var(--overlay1); }
+.pub-tag {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--surface1);
+  color: var(--subtext2);
+  white-space: nowrap;
+}
+.pub-tag-first  { color: var(--green);  border-color: var(--green); }
+.pub-tag-patent { color: var(--yellow); border-color: var(--yellow); }
+.pub-row {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  column-gap: 14px;
+}
+.pub-row .t-key { text-align: left; }
+.pub-title   { color: var(--text); }
+.pub-authors { color: var(--yellow); }
+.pub-me      { color: var(--mauve); font-weight: 700; }
+.pub-venue   { color: var(--teal); }
+.pub-year    { color: var(--green); font-weight: 600; }
+.pub-done {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--surface0);
+}
