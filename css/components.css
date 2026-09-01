@@ -192,5 +192,6 @@
 .t-prompt  { color: var(--green); }
 .t-cmd     { color: var(--text); }
 .t-key     { color: var(--sky); }
+.t-key del  { color: var(--overlay0); text-decoration-thickness: 1px; }
 .t-val     { color: var(--yellow); }
 .t-comment { color: var(--overlay0); }
