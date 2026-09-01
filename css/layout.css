@@ -49,6 +49,35 @@ nav .container {
 
 /* ============ Hero ============ */
 .hero { padding: 96px 0 80px; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+}
+.avatar-frame {
+  width: clamp(160px, 22vw, 220px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 0px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--mauve), var(--blue), var(--pink));
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+  transition: transform .25s, box-shadow .25s;
+}
+.avatar-frame:hover {
+  transform: translateY(-4px) rotate(-3deg);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, .4);
+}
+.avatar-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateY(6%);
+  /* border-radius: 50%; */
+  /* border: 3px solid var(--mantle); */
+}
 .hero .greeting {
   font-family: var(--font-mono);
   color: var(--green);
@@ -268,6 +297,12 @@ footer .heart { color: var(--red); }
 @media (max-width: 720px) {
   .about-grid { grid-template-columns: 1fr; }
   .hero { padding: 64px 0 56px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .avatar-frame {
+    width: min(220px, 60vw);
+    margin: 0 auto;
+    order: -1;
+  }
   section { padding: 56px 0; }
   .nav-links a { padding: 6px 8px; font-size: 13px; }
 }
