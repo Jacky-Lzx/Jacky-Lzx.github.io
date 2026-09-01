@@ -12,12 +12,12 @@
   50% { opacity: .45; }
 }
 
-.reveal {
+:where(.reveal) {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .6s ease, transform .6s ease;
 }
-.reveal.visible {
+:where(.reveal.visible) {
   opacity: 1;
   transform: none;
 }

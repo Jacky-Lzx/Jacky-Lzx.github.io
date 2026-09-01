@@ -63,7 +63,7 @@ nav .container {
   overflow: hidden;
   background: linear-gradient(135deg, var(--mauve), var(--blue), var(--pink));
   box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
-  transition: transform .25s, box-shadow .25s;
+  transition: opacity .6s ease, transform .25s, box-shadow .25s;
 }
 .avatar-frame:hover {
   transform: translateY(-4px) rotate(-3deg);
@@ -133,7 +133,7 @@ section { padding: 72px 0; }
 /* ============ About ============ */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1fr 0.8fr;
   gap: 40px;
   align-items: start;
 }
@@ -153,12 +153,20 @@ section { padding: 72px 0; }
   border: 1px solid var(--surface0);
   border-radius: var(--radius);
   padding: 18px 22px;
-  transition: border-color .25s, transform .25s, box-shadow .25s;
+  transition:
+    opacity .6s ease,
+    background-color .35s ease,
+    border-color .35s ease,
+    transform .35s ease,
+    box-shadow .35s ease;
 }
 .tl-item:hover {
+  background: color-mix(in srgb, var(--accent) 8%, var(--mantle));
   border-color: var(--accent);
   transform: translateX(6px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, .3),
+    0 0 24px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 .tl-item::before {
   content: "";
@@ -171,6 +179,7 @@ section { padding: 72px 0; }
   color: var(--accent, var(--mauve));
   background: var(--accent, var(--mauve));
   border: 3px solid var(--base);
+  transition: transform .35s ease;
 }
 .tl-item:first-child::before {
   animation: tl-pulse 2.4s ease-out infinite;
@@ -183,10 +192,15 @@ section { padding: 72px 0; }
   bottom: -41px;
   width: 2px;
   background: var(--accent, var(--mauve));
+  transition: transform .35s ease;
 }
 .tl-item:last-child::after {
   top: 21px;
   bottom: 0;
+}
+.tl-item:hover::before,
+.tl-item:hover::after {
+  transform: translateX(-6px);
 }
 .tl-item .tl-time {
   font-family: var(--font-mono);
@@ -197,6 +211,7 @@ section { padding: 72px 0; }
 .tl-item h3 { font-size: 16px; }
 .tl-item .tl-icon { margin-right: 4px; }
 .tl-item .tl-co { color: var(--accent, var(--blue)); font-size: 14px; font-weight: 500; margin-top: 2px; }
+.tl-co sup { font-size: 12px; font-weight: 600; line-height: 0; vertical-align: 0.4em; }
 .tl-live {
   display: inline-block;
   margin-left: 10px;
@@ -238,7 +253,9 @@ section { padding: 72px 0; }
   color: var(--overlay1);
   font-size: 12px;
   margin-top: 4px;
+  padding-left: 3em;
 }
+.footnote sup { font-size: 11px; font-weight: 600; line-height: 0; vertical-align: 0.4em; }
 
 /* ============ Contact ============ */
 .contact-box {

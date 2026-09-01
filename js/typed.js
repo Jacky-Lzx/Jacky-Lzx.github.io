@@ -4,8 +4,8 @@
   if (!el) return;
 
   const roles = [
-    "PhD Student @ SJTU",
-    "Stochastic Computing",
+    "PhD Candidate @ SJTU",
+    "Stochastic & Approximate Computing",
     "Circuit & Architecture Design",
     "Neural Network Accelerators",
     "Milk Tea Driven Researcher 🧋",
