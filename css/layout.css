@@ -168,6 +168,114 @@ section { padding: 72px 0; }
 .about-text p { color: var(--subtext1); margin-bottom: 14px; font-size: 15px; }
 .about-text strong { color: var(--text); }
 
+/* ============ Personality（性格）============ */
+.personality {
+  margin-top: 32px;
+  background: var(--mantle);
+  border: 1px solid var(--surface0);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  transition: all .35s ease;
+}
+.personality:hover {
+  border-color: var(--surface2);
+  box-shadow: 0 10px 30px var(--shadow-color);
+}
+.personality-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.personality-id { display: flex; align-items: baseline; gap: 10px; }
+.personality-title {
+  font-family: var(--font-mono);
+  /* font-size: 12px; */
+  letter-spacing: 1px;
+  color: var(--teal);
+}
+.personality-name { font-size: 17px; font-weight: 700; color: var(--text); }
+.personality-badge {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--mauve);
+  background: color-mix(in srgb, var(--mauve) 12%, var(--surface0));
+  border: 1px solid color-mix(in srgb, var(--mauve) 40%, var(--surface1));
+  border-radius: 8px;
+  padding: 5px 12px;
+}
+.personality-bars { display: grid; gap: 13px; }
+.pbar {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px 52px;
+  align-items: center;
+  gap: 14px;
+}
+.pbar-label {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-size: 13.5px;
+  color: var(--subtext2);
+}
+.pbar-label em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--surface1));
+  border-radius: 5px;
+  padding: 0 5px;
+  line-height: 1.5;
+}
+.pbar-opposite {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--overlay1);
+}
+.pbar-opposite em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--overlay1);
+  border: 1px solid var(--surface1);
+  border-radius: 5px;
+  padding: 0 5px;
+  line-height: 1.5;
+}
+.pbar-track {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--surface0);
+  overflow: hidden;
+}
+.pbar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 55%, var(--surface1)), var(--accent));
+  transition: width 1.1s cubic-bezier(.22, 1, .36, 1);
+}
+.personality.visible .pbar-fill { width: var(--p); }
+.pbar-value {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: right;
+}
+
 /* ============ Timeline ============ */
 .tl-mauve { --accent: var(--mauve); }
 .tl-green { --accent: var(--green); }
@@ -346,6 +454,9 @@ footer .heart { color: var(--red); }
 /* ============ Responsive ============ */
 @media (max-width: 720px) {
   .about-grid { grid-template-columns: 1fr; }
+  .pbar { grid-template-columns: 80px minmax(0, 1fr) 80px 44px; gap: 8px; }
+  .pbar-label { font-size: 12.5px; }
+  .pbar-opposite { font-size: 11.5px; }
   .hero { padding: 64px 0 56px; }
   .hero-inner { grid-template-columns: 1fr; gap: 32px; }
   .avatar-frame {
