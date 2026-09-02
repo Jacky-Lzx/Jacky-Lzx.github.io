@@ -39,9 +39,9 @@
   right: 24px;
   bottom: 24px;
   z-index: 90;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
+  width: 64px;
+  height: 52px;
+  border-radius: var(--radius);
   border: 1px solid var(--surface1);
   background: var(--mantle);
   color: var(--subtext1);
@@ -59,6 +59,8 @@
     border-color .2s, box-shadow .2s;
 }
 .to-top .to-top-arrow { font-size: 14px; line-height: 1; }
+.to-top .to-top-keys { display: flex; gap: 3px; align-items: center; }
+.to-top .to-top-sep { font-size: 10px; line-height: 1; color: var(--overlay1); }
 .to-top .to-top-key {
   font-size: 10px;
   line-height: 1;
@@ -80,7 +82,9 @@
   transform: translateY(-2px);
 }
 .to-top:hover .to-top-arrow,
-.to-top.active .to-top-arrow { color: var(--mauve); }
+.to-top.active .to-top-arrow,
+.to-top:hover .to-top-sep,
+.to-top.active .to-top-sep { color: var(--mauve); }
 .to-top:hover .to-top-key,
 .to-top.active .to-top-key { border-color: var(--mauve); color: var(--mauve); }
 

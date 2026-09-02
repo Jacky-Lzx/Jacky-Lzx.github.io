@@ -29,27 +29,39 @@
 
   /* 回到顶端按钮：下滑超过阈值后显示 */
   const toTop = document.getElementById("toTop");
-  const toggleTop = () => toTop && toTop.classList.toggle("show", window.scrollY > 400);
+  /* 高亮期间（active）保持按钮可见，避免回顶滚动途中被隐藏而看不到高亮 */
+  const toggleTop = () =>
+    toTop &&
+    toTop.classList.toggle(
+      "show",
+      window.scrollY > 400 || toTop.classList.contains("active")
+    );
   let flashTimer;
+  /* 高亮跟随回顶动画，落到顶部即结束（按钮随即隐藏），不留额外延迟；1500ms 兜底 */
   function flashTop() {
-    if (!toTop) return;
+    if (!toTop) return () => {};
     toTop.classList.add("active");
+    toTop.classList.add("show");
     const stop = () => {
       toTop.classList.remove("active");
       clearTimeout(flashTimer);
+      toggleTop();
     };
-    window.addEventListener("scrollend", stop, { once: true });
     flashTimer = setTimeout(stop, 1500);
+    return stop;
   }
+  /* 回顶/到底：固定 300ms ease-out，比浏览器默认平滑滚动更快 */
+  const JUMP_DURATION = 300;
   function goToTop() {
-    flashTop();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    cancelMotion();
+    const stop = flashTop();
+    animateScroll(-window.scrollY, JUMP_DURATION, stop);
   }
   if (toTop) toTop.addEventListener("click", goToTop);
   window.addEventListener("scroll", toggleTop, { passive: true });
   toggleTop();
 
-  /* 数字键 0-6 跳转（0 回到顶端） */
+  /* 数字键 0-7 跳转（0 回到顶端） */
   window.addEventListener("keydown", (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     const t = e.target;
@@ -58,9 +70,11 @@
     const n = parseInt(e.key, 10);
     if (n === 0) {
       e.preventDefault();
+      cancelMotion();
       goToTop();
     } else if (n >= 1 && n <= links.length) {
       e.preventDefault();
+      cancelMotion();
       links[n - 1].click();
     }
   });
@@ -126,7 +140,7 @@
         ctrlRaf = requestAnimationFrame(frame);
       } else {
         ctrlRaf = null;
-        onDone();
+        onDone && onDone();
       }
     }
     ctrlRaf = requestAnimationFrame(frame);
@@ -163,6 +177,17 @@
     clearTimeout(ctrlHeldTimer);
   }
 
+  /* 取消正在进行的 j/k 长按滚动与 Ctrl 翻页动画，避免其 rAF 循环打断后续跳转 */
+  function cancelMotion() {
+    stopHold();
+    if (ctrlRaf) {
+      cancelAnimationFrame(ctrlRaf);
+      ctrlRaf = null;
+    }
+    ctrlAnim = false;
+    releaseCtrl();
+  }
+
   window.addEventListener("keydown", (e) => {
     if (e.metaKey || e.altKey) return;
     if (isTyping(e.target)) return;
@@ -183,7 +208,11 @@
       else holdScroll(e.key);
     } else if (e.key === "G") {
       e.preventDefault();
-      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
+      cancelMotion();
+      animateScroll(
+        document.documentElement.scrollHeight - window.scrollY,
+        JUMP_DURATION
+      );
     } else if (e.key === "g") {
       if (gTimer) {
         clearTimeout(gTimer);
