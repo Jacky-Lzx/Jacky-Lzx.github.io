@@ -79,7 +79,32 @@
     }
   });
 
-  /* vim 风格移动：j/k 小步（长按匀速），Ctrl+u/d 半屏，Ctrl+b/f 整屏（快速动画），G 到底，gg 到顶 */
+  /* h/l 到上一个/下一个 section（当前 section = 最后一个 top<=120 的 section；顶部 hero 视为 -1；
+     与 update() 一致：滚到底时最后一个 section 视为当前，即使其 top 仍 >120） */
+  function currentSectionIndex() {
+    const atBottom =
+      window.innerHeight + Math.ceil(window.scrollY) >=
+      document.documentElement.scrollHeight - 2;
+    if (atBottom) return sections.length - 1;
+    let current = -1;
+    sections.forEach((section, index) => {
+      if (section && section.getBoundingClientRect().top <= 120) {
+        current = index;
+      }
+    });
+    return current;
+  }
+
+  function stepSection(dir) {
+    const target = currentSectionIndex() + dir;
+    if (target === -1) {
+      goToTop();
+    } else if (target >= 0 && target < sections.length) {
+      links[target].click();
+    }
+  }
+
+  /* vim 风格移动：h/l 切 section，j/k 小步（长按匀速），Ctrl+u/d 半屏，Ctrl+b/f 整屏（快速动画），G 到底，gg 到顶 */
   const SPEED_SMALL = 800; // px/s，j/k 长按速度
   let gTimer;
   let rafId = null;
@@ -202,7 +227,11 @@
       return;
     }
 
-    if (e.key === "j" || e.key === "k") {
+    if (e.key === "h" || e.key === "l") {
+      e.preventDefault();
+      cancelMotion();
+      stepSection(e.key === "l" ? 1 : -1);
+    } else if (e.key === "j" || e.key === "k") {
       e.preventDefault();
       if (e.repeat) refreshHoldSafety();
       else holdScroll(e.key);

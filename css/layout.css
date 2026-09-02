@@ -30,6 +30,17 @@ nav .container {
 }
 .nav-links a:hover { color: var(--text); background: var(--surface0); }
 .nav-links a.active { color: var(--blue); }
+/* 左侧指示器：数字与 h 箭头叠放在固定槽位内，激活时交叉淡入淡出（避免布局跳动） */
+.nav-ind {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 17px;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.nav-ind > * { grid-area: 1 / 1; }
+
 .nav-links a .nav-num {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -38,14 +49,66 @@ nav .container {
   border-radius: 4px;
   border: 1px solid var(--surface1);
   color: var(--overlay1);
-  margin-right: 6px;
-  transition: border-color .2s, color .2s;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity .24s cubic-bezier(.4,0,.2,1),
+    transform .24s cubic-bezier(.4,0,.2,1), border-color .2s, color .2s;
 }
-.nav-links a:hover .nav-num,
-.nav-links a.active .nav-num {
+.nav-links a:hover .nav-num {
   border-color: var(--mauve);
   color: var(--mauve);
 }
+/* 当前 section：数字淡出缩小 */
+.nav-links a.active .nav-num { opacity: 0; transform: scale(.55); }
+
+/* h/l 快捷键提示：h 在标签左侧（左箭头），l 在右侧（右箭头）；首 section 无 h，末 section 无 l */
+.nav-links a .nav-key {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 17px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1;
+  color: var(--overlay1);
+  background: var(--surface1);
+}
+.nav-links a .nav-key-letter { position: relative; z-index: 1; }
+/* 内层填充，与外层 1px 差形成箭头形边框 */
+.nav-links a .nav-key::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--mantle);
+  z-index: 0;
+}
+/* h：左箭头，与数字叠放，非激活时隐藏 */
+.nav-links a .nav-key-h {
+  clip-path: polygon(0 50%, 20% 0, 100% 0, 100% 100%, 20% 100%);
+  opacity: 0;
+  transform: scale(.55);
+  transition: opacity .24s cubic-bezier(.4,0,.2,1),
+    transform .24s cubic-bezier(.4,0,.2,1), background-color .2s, color .2s;
+}
+.nav-links a .nav-key-h::before { clip-path: polygon(0 50%, 20% 0, 100% 0, 100% 100%, 20% 100%); }
+.nav-links a.active .nav-key-h { opacity: 1; transform: scale(1); background: var(--mauve); color: var(--mauve); }
+/* l：右箭头，激活时从标签右侧展开 */
+.nav-links a .nav-key-l {
+  width: 0;
+  margin-left: 0;
+  opacity: 0;
+  overflow: hidden;
+  clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+  transition: width .24s cubic-bezier(.4,0,.2,1), margin-left .24s cubic-bezier(.4,0,.2,1),
+    opacity .24s cubic-bezier(.4,0,.2,1), background-color .2s, color .2s;
+}
+.nav-links a .nav-key-l::before { clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%); }
+.nav-links a.active .nav-key-l { width: 24px; margin-left: 7px; opacity: 1; background: var(--mauve); color: var(--mauve); }
+/* 首个 section 无 h，末个 section 无 l */
+.nav-links a.active:first-child .nav-key-h { opacity: 0; transform: scale(.55); }
+.nav-links a.active:last-child .nav-key-l { width: 0; margin-left: 0; opacity: 0; }
 
 /* 亮/暗主题切换 */
 .theme-toggle {
@@ -466,4 +529,8 @@ footer .heart { color: var(--red); }
   }
   section { padding: 56px 0; }
   .nav-links a { padding: 6px 8px; font-size: 13px; }
+  /* 触屏设备无键盘快捷键，隐藏 h/l 提示避免导航溢出 */
+  .nav-ind { width: auto; margin-right: 6px; }
+  .nav-links a .nav-key-h, .nav-links a.active .nav-key-h,
+  .nav-links a .nav-key-l, .nav-links a.active .nav-key-l { display: none; }
 }
