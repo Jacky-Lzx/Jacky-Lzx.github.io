@@ -209,7 +209,8 @@ section { padding: 72px 0; }
   margin-bottom: 4px;
 }
 .tl-item h3 { font-size: 16px; }
-.tl-item .tl-icon { margin-right: 4px; }
+.tl-item .tl-icon { margin-right: 4px; display: inline-flex; }
+.tl-item .tl-icon svg { width: 17px; height: 17px; color: var(--accent, var(--mauve)); }
 .tl-item .tl-co { color: var(--accent, var(--blue)); font-size: 14px; font-weight: 500; margin-top: 2px; }
 .tl-co sup { font-size: 12px; font-weight: 600; line-height: 0; vertical-align: 0.4em; }
 .tl-live {
