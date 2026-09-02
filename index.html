@@ -5,6 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>李泽玺 @ 上海交通大学</title>
+    <script>
+        (function() {
+            var t;
+            try {
+                t = localStorage.getItem("theme");
+            } catch (e) {}
+            if (t !== "latte" && t !== "mocha") {
+                t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "latte" : "mocha";
+            }
+            document.documentElement.dataset.theme = t;
+        })();
+    </script>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
@@ -36,6 +48,22 @@
                 <a href="#awards"><span class="nav-num">5</span>荣誉</a>
                 <a href="#contact"><span class="nav-num">6</span>联系</a>
             </div>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换亮色/暗色主题（快捷键 t）" title="切换亮/暗主题 · 快捷键 t">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2"></path>
+                    <path d="M12 20v2"></path>
+                    <path d="m4.93 4.93 1.41 1.41"></path>
+                    <path d="m17.66 17.66 1.41 1.41"></path>
+                    <path d="M2 12h2"></path>
+                    <path d="M20 12h2"></path>
+                    <path d="m6.34 17.66-1.41 1.41"></path>
+                    <path d="m19.07 4.93-1.41 1.41"></path>
+                </svg>
+            </button>
         </div>
     </nav>
 
@@ -417,7 +445,7 @@
 
     <footer>
         <div class="container">
-            <span>© 2026 李泽玺 · Catppuccin Mocha 主题 · 在本地部署 Qwen3.8 27B 模型的生成基础上修改</span>
+            <span>© 2026 李泽玺 · Catppuccin Mocha / Latte 主题 · 在本地部署 Qwen3.8 27B 模型的生成基础上修改</span>
         </div>
     </footer>
 
@@ -426,6 +454,7 @@
         <span class="to-top-key">0</span>
     </button>
 
+    <script src="js/theme.js"></script>
     <script src="js/typed.js"></script>
     <script src="js/reveal.js"></script>
     <script src="js/nav.js"></script>

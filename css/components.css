@@ -13,13 +13,13 @@
 }
 .btn-primary {
   background: var(--mauve);
-  color: var(--crust);
+  color: var(--btn-fg);
   border-color: var(--mauve);
 }
 .btn-primary:hover {
   background: var(--pink);
   border-color: var(--pink);
-  color: var(--crust);
+  color: var(--btn-fg);
   transform: translateY(-2px);
 }
 .btn-ghost {
@@ -76,7 +76,7 @@
 .to-top:hover,
 .to-top.active {
   border-color: var(--mauve);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  box-shadow: 0 8px 24px var(--shadow-color);
   transform: translateY(-2px);
 }
 .to-top:hover .to-top-arrow,
@@ -118,7 +118,7 @@
 .skill-card:hover {
   border-color: var(--surface2);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+  box-shadow: 0 10px 30px var(--shadow-color);
 }
 .skill-card .icon { margin-bottom: 10px; }
 .skill-card .icon svg { width: 22px; height: 22px; color: var(--mauve); }
@@ -132,7 +132,7 @@
   overflow: hidden;
   font-family: var(--font-mono);
   font-size: 13px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+  box-shadow: 0 12px 40px var(--shadow-color);
 }
 .terminal-bar {
   display: flex;

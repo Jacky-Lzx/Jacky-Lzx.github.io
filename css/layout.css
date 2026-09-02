@@ -47,6 +47,34 @@ nav .container {
   color: var(--mauve);
 }
 
+/* 亮/暗主题切换 */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--surface1);
+  background: transparent;
+  color: var(--overlay1);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background-color .2s;
+}
+.theme-toggle:hover {
+  border-color: var(--mauve);
+  color: var(--mauve);
+  background: var(--surface0);
+}
+.theme-toggle svg {
+  width: 17px;
+  height: 17px;
+}
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="latte"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="latte"] .theme-toggle .icon-moon { display: none; }
+
 /* ============ Hero ============ */
 .hero { padding: 96px 0 80px; }
 .hero-inner {
@@ -62,12 +90,12 @@ nav .container {
   padding: 0px;
   overflow: hidden;
   background: linear-gradient(135deg, var(--mauve), var(--blue), var(--pink));
-  box-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+  box-shadow: 0 12px 40px var(--shadow-color);
   transition: opacity .6s ease, transform .25s, box-shadow .25s;
 }
 .avatar-frame:hover {
   transform: translateY(-4px) rotate(-3deg);
-  box-shadow: 0 16px 44px rgba(0, 0, 0, .4);
+  box-shadow: 0 16px 44px var(--shadow-color);
 }
 .avatar-frame img {
   display: block;
@@ -165,7 +193,7 @@ section { padding: 72px 0; }
   border-color: var(--accent);
   transform: translateX(6px);
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, .3),
+    0 10px 30px var(--shadow-color),
     0 0 24px color-mix(in srgb, var(--accent) 22%, transparent);
 }
 .tl-item::before {
