@@ -194,6 +194,8 @@
 .pub-me      { color: var(--mauve); font-weight: 700; }
 .pub-venue   { color: var(--teal); }
 .pub-year    { color: var(--green); font-weight: 600; }
+a.pub-title  { cursor: pointer; transition: color .2s; }
+a.pub-title:hover { color: var(--mauve); text-decoration: underline; }
 .pub-done {
   margin-top: 16px;
   padding-top: 16px;
