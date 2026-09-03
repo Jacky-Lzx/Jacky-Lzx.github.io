@@ -149,27 +149,63 @@ nav .container {
   align-items: center;
 }
 .avatar-frame {
+  position: relative;
   width: clamp(160px, 22vw, 220px);
   aspect-ratio: 1;
-  border-radius: 50%;
-  padding: 0px;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--mauve), var(--blue), var(--pink));
-  box-shadow: 0 12px 40px var(--shadow-color);
-  transition: opacity .6s ease, transform .25s, box-shadow .25s;
+  cursor: pointer;
+  perspective: 1200px;
+  transition: opacity .6s ease, transform .25s;
 }
 .avatar-frame:hover {
   transform: translateY(-4px) rotate(-3deg);
+}
+.avatar-frame:focus-visible {
+  outline: 2px solid var(--mauve);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+.avatar-flipper {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.35, .1, .25, 1);
+  will-change: transform;
+}
+.avatar-frame.flipped .avatar-flipper {
+  transform: rotateY(180deg);
+}
+.avatar-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  box-shadow: 0 12px 40px var(--shadow-color);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: box-shadow .25s;
+}
+.avatar-frame:hover .avatar-face {
   box-shadow: 0 16px 44px var(--shadow-color);
 }
-.avatar-frame img {
+.avatar-front {
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--mauve), var(--blue), var(--pink));
+}
+.avatar-back {
+  border-radius: 18px;
+  background: var(--mantle);
+  transform: rotateY(180deg);
+}
+.avatar-face img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.avatar-front img {
   transform: translateY(6%);
-  /* border-radius: 50%; */
-  /* border: 3px solid var(--mantle); */
+}
+@media (prefers-reduced-motion: reduce) {
+  .avatar-flipper { transition-duration: .01s; }
 }
 .hero .greeting {
   font-family: var(--font-mono);

@@ -88,8 +88,15 @@
                         <a class="btn btn-ghost btn-hl-peach" href="#contact">联系</a>
                     </div>
                 </div>
-                <div class="avatar-frame reveal">
-                    <img src="assets/avatar_1_compressed_cropped.png" alt="李泽玺的头像">
+                <div class="avatar-frame reveal" id="avatarFlip" role="button" tabindex="0" aria-pressed="false" aria-label="点击翻转头像，查看 ChatGPT 绘制版">
+                    <div class="avatar-flipper">
+                        <div class="avatar-face avatar-front">
+                            <img src="assets/avatar_1_compressed_cropped.png" alt="李泽玺的头像">
+                        </div>
+                        <div class="avatar-face avatar-back">
+                            <img src="assets/ChatGPT_drawing_compressed.webp" alt="ChatGPT 绘制的我" loading="lazy">
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -670,6 +677,7 @@
     <script src="js/theme.js"></script>
     <script src="js/typed.js"></script>
     <script src="js/reveal.js"></script>
+    <script src="js/avatar.js"></script>
     <script src="js/nav.js"></script>
 </body>
 
