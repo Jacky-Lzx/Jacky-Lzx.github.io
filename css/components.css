@@ -32,6 +32,9 @@
   color: var(--text);
   transform: translateY(-2px);
 }
+.btn-hl-mauve:hover { border-color: var(--mauve); color: var(--mauve); }
+.btn-hl-green:hover  { border-color: var(--green); color: var(--green); }
+.btn-hl-peach:hover  { border-color: var(--peach); color: var(--peach); }
 
 /* ============ 回到顶端 ============ */
 .to-top {
@@ -230,6 +233,7 @@
 .os-tag-skin     { color: var(--pink); border-color: var(--pink); }
 .os-tag-tool     { color: var(--teal); border-color: var(--teal); }
 .os-tag-mod      { color: var(--peach); border-color: var(--peach); }
+.os-tag-config   { color: var(--sky); border-color: var(--sky); }
 .os-desc { color: var(--subtext1); font-size: 13px; }
 .os-done {
   margin-top: 16px;
