@@ -228,7 +228,7 @@ section { padding: 72px 0; }
   display: grid;
   grid-template-columns: 1fr 0.8fr;
   gap: 40px;
-  align-items: start;
+  align-items: center;
 }
 .about-text p { color: var(--subtext1); margin-bottom: 14px; font-size: 15px; }
 .about-text strong { color: var(--text); }
