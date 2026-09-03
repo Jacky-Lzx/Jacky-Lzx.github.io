@@ -58,6 +58,12 @@
     animateScroll(-window.scrollY, JUMP_DURATION, stop);
   }
   if (toTop) toTop.addEventListener("click", goToTop);
+  const logo = document.getElementById("logo");
+  if (logo)
+    logo.addEventListener("click", (e) => {
+      e.preventDefault();
+      goToTop();
+    });
   window.addEventListener("scroll", toggleTop, { passive: true });
   toggleTop();
 

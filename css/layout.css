@@ -18,8 +18,10 @@ nav .container {
   font-size: 15px;
   color: var(--mauve);
   font-weight: 600;
+  cursor: pointer;
 }
 .logo .prompt { color: var(--green); }
+.logo:hover { color: var(--mauve); text-decoration: underline; text-underline-offset: 4px; }
 .nav-links { display: flex; gap: 4px; }
 .nav-links a {
   font-size: 14px;
