@@ -11,6 +11,7 @@
     "Stochastic & Approximate Computing",
     "Circuit & Architecture Design",
     "Neural Network Accelerators",
+    "Talk is cheap, show me the code",
     { text: "Milk Tea Driven Researcher", icon: iconSoda },
   ];
 

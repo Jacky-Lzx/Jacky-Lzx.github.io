@@ -101,13 +101,18 @@
   background: var(--surface0);
   color: var(--subtext2);
 }
+.chip.hl-lavender { color: var(--lavender); }
 .chip.hl-blue   { color: var(--blue); }
-.chip.hl-mauve  { color: var(--mauve); }
+.chip.hl-sapphire { color: var(--sapphire); }
+.chip.hl-sky    { color: var(--sky); }
 .chip.hl-teal   { color: var(--teal); }
-.chip.hl-peach  { color: var(--peach); }
 .chip.hl-green  { color: var(--green); }
-.chip.hl-pink   { color: var(--pink); }
 .chip.hl-yellow { color: var(--yellow); }
+.chip.hl-peach  { color: var(--peach); }
+.chip.hl-maroon { color: var(--maroon); }
+.chip.hl-red    { color: var(--red); }
+.chip.hl-mauve  { color: var(--mauve); }
+.chip.hl-pink   { color: var(--pink); }
 
 /* ============ Skill Cards ============ */
 .skills-grid {
@@ -130,6 +135,17 @@
 .skill-card .icon { margin-bottom: 10px; }
 .skill-card .icon svg { width: 22px; height: 22px; color: var(--mauve); }
 .skill-card h3 { font-size: 15px; margin-bottom: 8px; color: var(--text); }
+.skill-card.tools-card {
+  display: flex;
+  flex-direction: column;
+}
+.skill-card.tools-card > .tools-top { flex: 1 1 50%; }
+.skill-card.tools-card .tool-group {
+  flex: 1 1 50%;
+  padding-top: 10px;
+  border-top: 1px dashed var(--surface1);
+}
+.skill-card .tool-group .chips { margin-top: 7px; }
 
 /* 半宽两列：时间线 + 卡片 */
 .skills-split {

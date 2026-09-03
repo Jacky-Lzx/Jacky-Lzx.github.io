@@ -20,7 +20,11 @@
   window.addEventListener("keydown", (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     const t = e.target;
-    if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+    if (
+      t &&
+      (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)
+    )
+      return;
     if (e.key === "t" || e.key === "T") {
       e.preventDefault();
       toggle();
