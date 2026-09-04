@@ -670,10 +670,12 @@ footer .heart { color: var(--red); }
   }
   section { padding: 56px 0; }
   .nav-links a { padding: 6px 8px; font-size: 13px; }
-  /* 触屏设备无键盘快捷键，隐藏 h/l 提示避免导航溢出 */
-  .nav-ind { width: auto; margin-right: 6px; }
+  /* 触屏设备无键盘快捷键，隐藏数字编号与 h/l 提示避免导航溢出 */
+  .nav-ind { display: none; }
   .nav-links a .nav-key-h, .nav-links a.active .nav-key-h,
   .nav-links a .nav-key-l, .nav-links a.active .nav-key-l { display: none; }
+  .to-top .to-top-keys { display: none; }
+  .to-top { height: 44px; }
   .skills-split { grid-template-columns: 1fr; }
   .lt-row { grid-template-columns: 62px 1fr; column-gap: 8px; }
   .lt-name { font-size: 11.5px; }
