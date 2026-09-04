@@ -1,5 +1,11 @@
-Host the website using live-server with auto reload:
+# 李泽玺的个人主页
 
-```bash
-npx live-server .
-```
+上海交通大学博士生 · 研究新兴计算范式（随机计算 / 近似计算）的电路与架构设计及其在神经网络加速器中的应用。
+
+在线地址：<https://jacky-lzx.github.io>
+
+## 特性
+
+- 单页结构：关于我 / 经历 / 技能 / 荣誉 / 论文 / 开源项目 / 联系
+- Catppuccin Mocha / Latte 双主题，跟随系统偏好，支持快捷键 `t` 切换
+- 终端风格 UI（fish shell、`ls`/`gh` 输出），带 vim 风格快捷键（`h/l` 导航、`0`/`gg` 回顶）
