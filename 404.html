@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 · 李泽玺 @ 上海交通大学</title>
+    <meta name="robots" content="noindex">
+    <script>
+        (function() {
+            var t;
+            try {
+                t = localStorage.getItem("theme");
+            } catch (e) {}
+            if (t !== "latte" && t !== "mocha") {
+                t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "latte" : "mocha";
+            }
+            document.documentElement.dataset.theme = t;
+        })();
+    </script>
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <style>
+        .notfound {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .notfound .terminal {
+            width: 100%;
+            max-width: 560px;
+        }
+        .nf-code {
+            font-size: 22px;
+            margin: 16px 0 8px;
+            color: var(--red);
+        }
+        .nf-hint {
+            color: var(--overlay1);
+            margin-bottom: 16px;
+        }
+        .nf-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="notfound">
+        <div class="terminal">
+            <div class="terminal-bar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">404 — fish</span>
+            </div>
+            <div class="terminal-body">
+                <div><span class="t-prompt">❯</span> <span class="t-cmd">cd ./requested-page</span></div>
+                <div class="nf-code">fish: No such file or directory</div>
+                <div class="nf-hint">你访问的页面不存在，可能已被移动，也可能从未存在过。</div>
+                <div class="nf-actions">
+                    <a class="btn btn-ghost btn-hl-mauve" href="/">回到首页</a>
+                    <button class="btn btn-ghost btn-hl-peach" type="button" onclick="history.back()">返回上一页</button>
+                </div>
+                <div><span class="t-prompt">❯</span> <span class="t-cmd">exit 404</span></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
