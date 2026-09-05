@@ -35,6 +35,7 @@
 .btn-hl-mauve:hover { border-color: var(--mauve); color: var(--mauve); }
 .btn-hl-green:hover  { border-color: var(--green); color: var(--green); }
 .btn-hl-peach:hover  { border-color: var(--peach); color: var(--peach); }
+.btn-hl-blue:hover   { border-color: var(--blue); color: var(--blue); }
 
 /* ============ 回到顶端 ============ */
 .to-top {
