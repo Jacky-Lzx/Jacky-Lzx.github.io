@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Catppuccin Mocha base, rounded square -->
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#1e1e2e"/>
+  <!-- prompt chevron ❯ (Green, flattened) -->
+  <polyline points="15,20 24,32 15,44" fill="none" stroke="#a6e3a1" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+  <!-- cursor underscore _ (Mauve, longer) -->
+  <rect x="35" y="46" width="20" height="6" fill="#cba6f7"/>
+</svg>
